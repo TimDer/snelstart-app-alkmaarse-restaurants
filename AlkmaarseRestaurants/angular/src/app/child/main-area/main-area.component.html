@@ -1,0 +1,8 @@
+<div class="parent" [ngStyle]="NgStyleParent">
+    <div class="child" [ngStyle]="NgStyleChild">
+        <div class="content" #ContentElement>
+            <ng-content></ng-content>
+            <p class="bottom-placeholder"></p>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
 
-<router-outlet></router-outlet>
+<app-main-area [VhFullHeight]="true" [margin]="'70px auto'" [padding]="'10px 10px 10px 10px'" [width]="MainAreaWidth + 'px'">
+    <router-outlet></router-outlet>
+</app-main-area>
 
 <app-footer></app-footer>

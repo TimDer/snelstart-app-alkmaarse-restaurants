@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+const reduceCSSCalc = require('reduce-css-calc');
 
 @Component({
   selector: 'app-main-area',
@@ -31,42 +32,16 @@ export class MainAreaComponent implements OnInit, AfterViewInit {
   @Input()
   public BackgroundColor: string = "gray";
 
-  public _paddingBottomPx: number = 0;
   public _paddingArray: any = false;
   public _padding!: string;
   @Input()
   public set padding(data: string) {
-    const dataArray = data.split(" ");
+    const dataArray = this.paddingOrMarginValueToFour(data);
+    dataArray.array[2] = `calc(${dataArray.array[2]} - 1px)`;
 
-    if (dataArray.length === 1) {
-      dataArray[1] = dataArray[0];
-      dataArray[2] = `calc(${dataArray[0]} - 1px)`;
-      dataArray[3] = dataArray[0];
-      this._paddingBottomPx = parseInt(dataArray[0]) - 1;
-    }
-    else if (dataArray.length === 2) {
-      dataArray[2] = `calc(${dataArray[0]} - 1px)`;
-      dataArray[3] = dataArray[1]
-      this._paddingBottomPx = parseInt(dataArray[0]) - 1;
-    }
-    else if (dataArray.length === 3) {
-      const top = dataArray[0];
-      const bottom = dataArray[2];
-      const leftRight = dataArray[1];
-      dataArray[0] = top;
-      dataArray[1] = leftRight;
-      dataArray[2] = `calc(${bottom} - 1px)`;
-      dataArray[3] = leftRight;
-      this._paddingBottomPx = parseInt(bottom) - 1;
-    }
-    else if (dataArray.length === 4) {
-      this._paddingBottomPx = parseInt(dataArray[2]) - 1;
-      dataArray[2] = `calc(${dataArray[2]} - 1px)`;
-    }
+    this._paddingArray = dataArray.array;
 
-    this._paddingArray = dataArray;
-
-    const newData = dataArray.join(" ");
+    const newData = dataArray.array.join(" ");
 
     this._padding = newData;
 
@@ -89,7 +64,7 @@ export class MainAreaComponent implements OnInit, AfterViewInit {
     }
 
     if (this.marginAlignOverride !== false) {
-      let newMargin = this._marginArray.marginArray;
+      let newMargin = this._marginArray.array;
 
       newMargin[1] = this.marginAlignOverride[0];
       newMargin[3] = this.marginAlignOverride[1];
@@ -97,7 +72,7 @@ export class MainAreaComponent implements OnInit, AfterViewInit {
       return newMargin.join(" ");
     }
 
-    return this._marginArray.marginString;
+    return this._marginArray.string;
   }
 
   private paddingOrMarginValueToFour(data: string) {
@@ -119,7 +94,7 @@ export class MainAreaComponent implements OnInit, AfterViewInit {
     else if (oldArray.length === 3) {
       newArray[0] = oldArray[0];
       newArray[1] = oldArray[1];
-      newArray[2] = oldArray[3];
+      newArray[2] = oldArray[2];
       newArray[3] = oldArray[1];
     }
     else if (oldArray.length === 4) {
@@ -130,8 +105,8 @@ export class MainAreaComponent implements OnInit, AfterViewInit {
     }
 
     return {
-      "marginString": newArray.join(" "),
-      "marginArray": newArray
+      "string": newArray.join(" "),
+      "array": newArray
     };
   }
 
@@ -215,7 +190,6 @@ export class MainAreaComponent implements OnInit, AfterViewInit {
     let getArray = [];
     if (type === "padding") {
       getArray = this._paddingArray;
-      getArray[2] = `${this._paddingBottomPx.toString()}px`;
     }
     else {
       getArray = css.split(" ")
@@ -226,13 +200,13 @@ export class MainAreaComponent implements OnInit, AfterViewInit {
     }
 
     if (getArray.length === 1 || getArray.length === 2) {
-      return ( parseInt(getArray[0]) * 2 ) + 1
+      return ( parseInt(reduceCSSCalc(getArray[0])) * 2 ) + 1
     }
     else if (getArray.length === 3) {
-      return ( parseInt(getArray[1]) * 2 ) + 1
+      return ( parseInt(reduceCSSCalc(getArray[1])) * 2 ) + 1
     }
     else if (getArray.length === 4) {
-      return (parseInt(getArray[0]) + parseInt(getArray[2])) + 1;
+      return (parseInt(reduceCSSCalc(getArray[0])) + parseInt(reduceCSSCalc(getArray[2]))) + 1;
     }
     else {
       throw new Error(`Invalid css (${type})`);
@@ -241,7 +215,9 @@ export class MainAreaComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.GetParentHeightCssBugFix();
   }
-  @HostListener('window:resize', ['$event'])
+
+  @HostListener("window:scroll")
+  @HostListener('window:resize')
   private GetParentHeightCssBugFixResize(): void {
     this.GetParentHeightCssBugFix();
   }

@@ -78,8 +78,85 @@ export class MainAreaComponent implements OnInit, AfterViewInit {
     return this._padding;
   }
 
+  private _marginArray: any;
   @Input()
-  public margin: string = "0";
+  public set margin(data: string) {
+    this._marginArray = this.paddingOrMarginValueToFour(data);
+  }
+  public get margin(): string {
+    if (this._marginArray === undefined) {
+      this._marginArray = this.paddingOrMarginValueToFour("auto");
+    }
+
+    if (this.marginAlignOverride !== false) {
+      let newMargin = this._marginArray.marginArray;
+
+      newMargin[1] = this.marginAlignOverride[0];
+      newMargin[3] = this.marginAlignOverride[1];
+
+      return newMargin.join(" ");
+    }
+
+    return this._marginArray.marginString;
+  }
+
+  private paddingOrMarginValueToFour(data: string) {
+    const oldArray = data.split(" ");
+    let newArray = [];
+
+    if (oldArray.length === 1) {
+      newArray[0] = oldArray[0];
+      newArray[1] = oldArray[0];
+      newArray[2] = oldArray[0];
+      newArray[3] = oldArray[0];
+    }
+    else if (oldArray.length === 2) {
+      newArray[0] = oldArray[0];
+      newArray[1] = oldArray[1];
+      newArray[2] = oldArray[0];
+      newArray[3] = oldArray[1];
+    }
+    else if (oldArray.length === 3) {
+      newArray[0] = oldArray[0];
+      newArray[1] = oldArray[1];
+      newArray[2] = oldArray[3];
+      newArray[3] = oldArray[1];
+    }
+    else if (oldArray.length === 4) {
+      newArray[0] = oldArray[0];
+      newArray[1] = oldArray[1];
+      newArray[2] = oldArray[2];
+      newArray[3] = oldArray[3];
+    }
+
+    return {
+      "marginString": newArray.join(" "),
+      "marginArray": newArray
+    };
+  }
+
+  public marginAlignOverride: any | boolean = false;
+  @Input()
+  public set align(data: "center" | "right" | "left") {
+    if (data === "center") {
+      this.marginAlignOverride = [
+        "auto",
+        "auto"
+      ];
+    }
+    else if (data === "right") {
+      this.marginAlignOverride = [
+        "0",
+        "auto"
+      ];
+    }
+    else if (data === "left") {
+      this.marginAlignOverride = [
+        "auto",
+        "0"
+      ];
+    }
+  }
 
   constructor() { }
 

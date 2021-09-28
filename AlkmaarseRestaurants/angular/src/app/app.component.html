@@ -1,7 +1,11 @@
-<app-navbar></app-navbar>
+<header>
+    <app-navbar></app-navbar>
+</header>
 
-<app-main-area [VhFullHeight]="true" [margin]="'70px auto'" [padding]="'10px'" [width]="MainAreaWidth + 'px'">
-    <router-outlet></router-outlet>
-</app-main-area>
+<main>
+    <app-main-area [VhFullHeight]="true" [margin]="'70px auto'" [padding]="'10px'" [width]="MainAreaWidth + 'px'">
+        <router-outlet></router-outlet>
+    </app-main-area>
+</main>
 
 <app-footer></app-footer>

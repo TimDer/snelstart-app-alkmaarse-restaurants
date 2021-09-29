@@ -22,9 +22,9 @@ export class AppComponent implements OnInit {
   private SetMainAreaWidth(): void {
     const windowWidth = window.innerWidth;
     
-    this.MainAreaWidth = 1000;
+    this.MainAreaWidth = 1280;
 
-    if (windowWidth <= 1030) {
+    if (windowWidth <= 1310) {
       this.MainAreaWidth = windowWidth - 30;
     }
   }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { IRestaurantModel } from 'src/app/shared/interfaces/IRestaurantModel';
+import { RestaurantModel } from 'src/app/shared/models/RestaurantModel';
 
 @Component({
   selector: 'app-restaurants',
@@ -15,7 +15,7 @@ export class RestaurantsComponent implements OnInit {
 
   ngOnInit(): void {
     /*this._http.get("/api/restaurant")
-      .subscribe((data: IRestaurantModel) => {
+      .subscribe((data: RestaurantModel) => {
         
       });*/
   }

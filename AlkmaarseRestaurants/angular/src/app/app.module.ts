@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { MainAreaComponent } from './shared/main-area/main-area.component';
+import { NavbarComponent } from './core/components/navbar/navbar.component';
+import { FooterComponent } from './core/components/footer/footer.component';
+import { MainAreaComponent } from './shared/components/main-area/main-area.component';
 import { RouterModule, Routes } from '@angular/router';
-import { RestaurantsComponent } from './www/restaurants/restaurants.component';
-import { RestaurantsLogoComponent } from './shared/restaurants/restaurants-logo/restaurants-logo.component';
+import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
+import { RestaurantsLogoComponent } from './shared/components/restaurants/restaurants-logo/restaurants-logo.component';
 import { HttpClientModule } from '@angular/common/http';
 
 const ngRoutes: Routes = [

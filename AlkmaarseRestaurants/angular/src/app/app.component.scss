@@ -1,3 +1,19 @@
-@import "/src/scss/bootstrap/bootstrap-start";
+@import "/src/scss/bootstrap/bootstrap-start.scss";
 
 @import "/node_modules/bootstrap/scss/grid";
+
+.container {
+    background-color: gray;
+    min-height: 100vh;
+    padding: 0;
+
+    main {
+        padding: 70px 15px;
+        min-height: 100%;
+
+        .main-colour {
+            height: 100%;
+            background-color: #FFFFFF;
+        }
+    }
+}

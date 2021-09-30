@@ -1,13 +1,15 @@
-<header>
-    <app-navbar></app-navbar>
-</header>
+<div class="container">
+    <header>
+        <app-navbar></app-navbar>
+    </header>
 
-<main>
-    <app-main-area [VhFullHeight]="true" [margin]="'70px auto'" [padding]="'10px'" [width]="MainAreaWidth + 'px'" [BackgroundColor]="'#D6D6D6'">
-        <router-outlet></router-outlet>
-    </app-main-area>
-</main>
+    <main>
+        <div class="main-colour">
+            <router-outlet></router-outlet>
+        </div>
+    </main>
 
-<footer>
-    <app-footer></app-footer>
-</footer>
+    <footer>
+        <app-footer></app-footer>
+    </footer>
+</div>

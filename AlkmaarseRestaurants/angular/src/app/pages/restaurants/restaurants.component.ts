@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RestaurantModel } from 'src/app/shared/models/RestaurantModel';
+import { RestaurantApiService } from 'src/app/shared/services/apis/restaurant/restaurant-api.service';
 
 @Component({
   selector: 'app-restaurants',
@@ -12,13 +13,13 @@ export class RestaurantsComponent implements OnInit {
   public Restaurants!: RestaurantModel[];
 
   constructor(
-    private _http: HttpClient
+    private restaurantApiService: RestaurantApiService
   ) { }
 
   ngOnInit(): void {
-    this._http.get<RestaurantModel[]>("/api/restaurant")
-      .subscribe((data: RestaurantModel[]) => {
-        this.Restaurants = data;
-      });
+    this.restaurantApiService
+        .getAllRestaurants(
+          (apiData: RestaurantModel[]) => this.Restaurants = apiData
+        );
   }
 }

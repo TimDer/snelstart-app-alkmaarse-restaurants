@@ -7,14 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class RestaurantsLogoComponent implements OnInit {
 
-  public _src: string = "";
   @Input()
-  public set src(data: string) {
-    this._src = window.location.protocol + "//" + window.location.host + data;
-  }
-  public get src(): string {
-    return this._src;
-  }
+  public src: string = "";
 
   @Input()
   public width: string = "100%";

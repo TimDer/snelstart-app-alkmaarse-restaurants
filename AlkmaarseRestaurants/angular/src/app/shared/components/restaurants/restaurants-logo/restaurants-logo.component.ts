@@ -7,15 +7,6 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class RestaurantsLogoComponent implements OnInit {
 
-  // ============================== main-area forward ==============================
-  @Input()
-  public margin: string = "0";
-  @Input()
-  public align: "center" | "right" | "left" = "left";
-  @Input()
-  public width: string = "0";
-  // ============================== /main-area forward ==============================
-
   public _src: string = "";
   @Input()
   public set src(data: string) {
@@ -26,7 +17,7 @@ export class RestaurantsLogoComponent implements OnInit {
   }
 
   @Input()
-  public imgWidth: string = "auto";
+  public width: string = "100%";
 
   @Input()
   public alt: string = "";

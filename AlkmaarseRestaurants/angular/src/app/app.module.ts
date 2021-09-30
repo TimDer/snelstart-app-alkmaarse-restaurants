@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
 import { RestaurantsLogoComponent } from './shared/components/restaurants/restaurants-logo/restaurants-logo.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RestaurantInfoComponent } from './shared/components/restaurant-info/restaurant-info.component';
 
 const ngRoutes: Routes = [
   {
@@ -25,7 +26,8 @@ const ngRoutes: Routes = [
     FooterComponent,
     MainAreaComponent,
     RestaurantsComponent,
-    RestaurantsLogoComponent
+    RestaurantsLogoComponent,
+    RestaurantInfoComponent
   ],
   imports: [
     BrowserModule,

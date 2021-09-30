@@ -1,9 +1,9 @@
 export interface IRestaurantModel {
-    Id: number
-    Name: string
-    Address: string
-    StreetName: string
-    StreetNumber: string
-    ImageLogo: string
-    RestaurantType: string
+    id: number
+    name: string
+    address: string
+    streetName: string
+    streetNumber: string
+    imageLogo: string
+    restaurantType: string
 }

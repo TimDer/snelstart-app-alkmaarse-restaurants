@@ -20,7 +20,7 @@ namespace AlkmaarseRestaurants.Controllers
         public IActionResult selectOwn(int id)
         {
             var data = new RestaurantsDummyData();
-            if (data.Restaurants.Any(item => item.ID == id))
+            if (data.Restaurants.Any(item => item.Id == id))
             {
                 return Json(data.Restaurants[id]);
             }

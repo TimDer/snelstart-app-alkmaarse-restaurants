@@ -1,10 +1,14 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-6 col-md-5 col-lg-4">
-            <app-restaurants-logo [src]="'/assets/aap.jpg'" [height]="'auto'" [width]="'100%'" [align]="'center'"></app-restaurants-logo>
+<div class="container-fluid restaurant-rows">
+    <ng-container *ngFor="let Restaurant of Restaurants; first as first; last as last;">
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-lg-4">
+                <app-restaurants-logo [src]="Restaurant.imageLogo" [height]="'auto'"></app-restaurants-logo>
+            </div>
+            <div class="col-sm-6 col-md-7 col-lg-8">
+                <app-restaurant-info [Restaurant]="Restaurant"></app-restaurant-info>
+            </div>
         </div>
-        <div class="col-sm-6 col-md-7 col-lg-8">
-            blablablablabla
-        </div>
-    </div>
+    
+        <hr *ngIf="last !== true">
+    </ng-container>
 </div>

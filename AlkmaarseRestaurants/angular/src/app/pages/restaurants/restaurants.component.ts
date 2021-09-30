@@ -9,15 +9,16 @@ import { RestaurantModel } from 'src/app/shared/models/RestaurantModel';
 })
 export class RestaurantsComponent implements OnInit {
 
+  public Restaurants!: RestaurantModel[];
+
   constructor(
     private _http: HttpClient
   ) { }
 
   ngOnInit(): void {
-    /*this._http.get("/api/restaurant")
-      .subscribe((data: RestaurantModel) => {
-        
-      });*/
+    this._http.get<RestaurantModel[]>("/api/restaurant")
+      .subscribe((data: RestaurantModel[]) => {
+        this.Restaurants = data;
+      });
   }
-
 }

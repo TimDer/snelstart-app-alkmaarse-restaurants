@@ -1,8 +1,4 @@
 ﻿using AlkmaarseRestaurants.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AlkmaarseRestaurants.DummyData
 {
@@ -15,43 +11,43 @@ namespace AlkmaarseRestaurants.DummyData
             Restaurants = new RestaurantModel[] {
                 new RestaurantModel
                 {
-                    ID = 0,
+                    Id = 0,
                     Name = "Het aapen restaurant",
                     Address = "Apeldoorn",
-                    StreatName = "Wilslaan",
-                    Number = 21,
-                    Img = "/assets/aap.jpg",
-                    Type = "Fast Foot"
+                    StreetName = "Wilslaan",
+                    StreetNumber = 21,
+                    ImageLogo = "/assets/imagesRestaurantLogos/aap.jpg",
+                    RestaurantType = "Fast Foot"
                 },
                 new RestaurantModel
                 {
-                    ID = 1,
+                    Id = 1,
                     Name = "Restaurant de crêpe",
                     Address = "Alkmaar",
-                    StreatName = "Pannekoekenstraat",
-                    Number = 12,
-                    Img = "/assets/Pannekoeken.jpg",
-                    Type = "Pannekoeken"
+                    StreetName = "Pannekoekenstraat",
+                    StreetNumber = 12,
+                    ImageLogo = "/assets/imagesRestaurantLogos/Pannekoeken.jpg",
+                    RestaurantType = "Pannekoeken"
                 },
                 new RestaurantModel
                 {
-                    ID = 2,
+                    Id = 2,
                     Name = "Naam 1",
                     Address = "Address 1",
-                    StreatName = "Straat 1",
-                    Number = 22,
-                    Img = "/assets/foto1.jpg",
-                    Type = "Type 1"
+                    StreetName = "Straat 1",
+                    StreetNumber = 22,
+                    ImageLogo = "/assets/imagesRestaurantLogos/foto1.jpg",
+                    RestaurantType = "Type 1"
                 },
                 new RestaurantModel
                 {
-                    ID = 3,
+                    Id = 3,
                     Name = "Naam 2",
                     Address = "Address 2",
-                    StreatName = "Straat 2",
-                    Number = 54,
-                    Img = "/assets/foto2.jpg",
-                    Type = "Type 2"
+                    StreetName = "Straat 2",
+                    StreetNumber = 54,
+                    ImageLogo = "/assets/imagesRestaurantLogos/foto2.jpg",
+                    RestaurantType = "Type 2"
                 }
             };
         }

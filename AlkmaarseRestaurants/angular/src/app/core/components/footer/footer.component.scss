@@ -1,3 +1,6 @@
+@use "sass:map";
+@import "/src/scss/bootstrap/bootstrap-start.scss";
+
 .footer {
     background-color: rgb(27, 206, 27);
     box-sizing: border-box;
@@ -5,9 +8,53 @@
     text-align: center;
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: auto;
+    right: auto;
+    
+    // default footer width
+    $bootstrap-container-width-old: 1140px;
+    width: $bootstrap-container-width-old;
 
+    // bootstrap breakpoints
+    $bootstrap-container-width: 
+        (
+            "breakpoint": map.get($grid-breakpoints, "xl"),
+            "newFooterWidth": map.get($container-max-widths, "lg")
+        ),
+        (
+            "breakpoint": map.get($grid-breakpoints, "lg"),
+            "newFooterWidth": map.get($container-max-widths, "md")
+        ),
+        (
+            "breakpoint": map.get($grid-breakpoints, "md"),
+            "newFooterWidth": map.get($container-max-widths, "sm")
+        );
+    
+    // loop through the bootstrap breakpoints
+    @each $bs-cwidth in $bootstrap-container-width {
+        @media screen and (max-width: map.get($bs-cwidth, "breakpoint")) {
+            width: map.get($bs-cwidth, "newFooterWidth");
+        }
+    
+        @media screen and (width: map.get($bs-cwidth, "breakpoint")) {
+            width: $bootstrap-container-width-old;
+        }
+        $bootstrap-container-width-old: map.get($bs-cwidth, "newFooterWidth");
+    }
+
+    // restore full width
+    @media screen and (max-width: 576px) {
+        width: auto;
+        left: 0;
+        right: 0;
+    }
+    @media screen and (width: 576px) {
+        width: $bootstrap-container-width-old;
+        left: auto;
+        right: auto;
+    }
+
+    // copyright paragraph
     p {
         margin: 0;
     }

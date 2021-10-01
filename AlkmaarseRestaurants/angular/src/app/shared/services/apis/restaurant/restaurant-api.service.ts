@@ -14,7 +14,7 @@ export class RestaurantApiService {
     this.http.get<RestaurantModel[]>("/api/restaurant").subscribe(subscribeToApi);
   }
 
-  public getOwnRestaurant(id: number, subscribeToApi: (restaurant: RestaurantModel) => void): void {
+  public getOwnRestaurant(id: string, subscribeToApi: (restaurant: RestaurantModel) => void): void {
     this.http.get<RestaurantModel>(`/api/restaurant/selectOwn/${id}`).subscribe(subscribeToApi);
   }
 }

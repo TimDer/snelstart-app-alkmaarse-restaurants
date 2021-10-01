@@ -11,11 +11,17 @@ import { RestaurantsComponent } from './pages/restaurants/restaurants.component'
 import { RestaurantsLogoComponent } from './shared/components/restaurants/restaurants-logo/restaurants-logo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RestaurantInfoComponent } from './shared/components/restaurant-info/restaurant-info.component';
+import { RestaurantComponent } from './pages/restaurant/restaurant.component';
+import { RestaurantLogoInfoComponent } from './shared/components/restaurants/restaurant-logo-info/restaurant-logo-info.component';
 
 const ngRoutes: Routes = [
   {
     path: "restaurants",
     component: RestaurantsComponent
+  },
+  {
+    path: "restaurant/:id",
+    component: RestaurantComponent
   }
 ];
 
@@ -27,7 +33,9 @@ const ngRoutes: Routes = [
     MainAreaComponent,
     RestaurantsComponent,
     RestaurantsLogoComponent,
-    RestaurantInfoComponent
+    RestaurantInfoComponent,
+    RestaurantComponent,
+    RestaurantLogoInfoComponent
   ],
   imports: [
     BrowserModule,

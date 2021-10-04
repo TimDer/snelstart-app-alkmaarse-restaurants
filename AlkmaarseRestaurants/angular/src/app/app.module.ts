@@ -8,11 +8,9 @@ import { FooterComponent } from './core/components/footer/footer.component';
 import { MainAreaComponent } from './shared/components/main-area/main-area.component';
 import { RouterModule, Routes } from '@angular/router';
 import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
-import { RestaurantsLogoComponent } from './shared/components/restaurants/restaurants-logo/restaurants-logo.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RestaurantInfoComponent } from './shared/components/restaurants/restaurant-info/restaurant-info.component';
+import { RestaurantInfoComponent } from './shared/components/restaurant-info/restaurant-info.component';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
-import { RestaurantLogoInfoComponent } from './shared/components/restaurants/restaurant-logo-info/restaurant-logo-info.component';
 
 const ngRoutes: Routes = [
   {
@@ -32,10 +30,8 @@ const ngRoutes: Routes = [
     FooterComponent,
     MainAreaComponent,
     RestaurantsComponent,
-    RestaurantsLogoComponent,
     RestaurantInfoComponent,
-    RestaurantComponent,
-    RestaurantLogoInfoComponent
+    RestaurantComponent
   ],
   imports: [
     BrowserModule,

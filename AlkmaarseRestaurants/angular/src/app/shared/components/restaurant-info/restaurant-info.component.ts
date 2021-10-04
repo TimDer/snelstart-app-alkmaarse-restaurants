@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RestaurantModel } from '../../../models/RestaurantModel';
+import { RestaurantModel } from '../../models/RestaurantModel';
 
 @Component({
   selector: 'app-restaurant-info',
@@ -13,6 +13,9 @@ export class RestaurantInfoComponent implements OnInit {
 
   @Input()
   public isRestaurantPage: boolean = false;
+
+  @Input()
+  public last!: boolean;
 
   constructor() { }
 

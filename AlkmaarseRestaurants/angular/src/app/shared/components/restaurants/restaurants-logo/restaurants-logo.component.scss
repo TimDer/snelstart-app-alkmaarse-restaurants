@@ -1,9 +1,0 @@
-@import "/src/scss/bootstrap/bootstrap-start.scss";
-
-.img {
-    border-radius: 40px;
-
-    @include media-breakpoint-up(sm) {
-        border-radius: 10px;
-    }
-}

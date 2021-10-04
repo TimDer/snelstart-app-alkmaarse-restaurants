@@ -20,7 +20,6 @@ export class RestaurantInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.isRestaurantPage, this.Restaurant);
   }
 
 }

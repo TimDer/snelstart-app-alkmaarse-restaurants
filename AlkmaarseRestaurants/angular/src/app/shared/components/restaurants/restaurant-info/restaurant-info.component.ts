@@ -11,9 +11,13 @@ export class RestaurantInfoComponent implements OnInit {
   @Input()
   public Restaurant!: RestaurantModel;
 
+  @Input()
+  public isRestaurantPage: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.isRestaurantPage, this.Restaurant);
   }
 
 }

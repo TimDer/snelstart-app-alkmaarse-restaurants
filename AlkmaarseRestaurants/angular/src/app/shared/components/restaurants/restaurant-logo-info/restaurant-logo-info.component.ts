@@ -14,6 +14,9 @@ export class RestaurantLogoInfoComponent implements OnInit {
   @Input()
   public last!: boolean;
 
+  @Input()
+  public isRestaurantPage: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {

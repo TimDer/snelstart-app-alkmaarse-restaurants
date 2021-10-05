@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { FooterComponent } from './core/components/footer/footer.component';
-import { MainAreaComponent } from './shared/components/main-area/main-area.component';
 import { RouterModule, Routes } from '@angular/router';
 import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -28,7 +27,6 @@ const ngRoutes: Routes = [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    MainAreaComponent,
     RestaurantsComponent,
     RestaurantInfoComponent,
     RestaurantComponent

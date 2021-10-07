@@ -10,7 +10,7 @@ import { RestaurantApiService } from 'src/app/shared/services/apis/restaurant/re
 })
 export class RestaurantComponent implements OnInit {
 
-  public Restaurant!: RestaurantModel;
+  public Restaurant: RestaurantModel = new RestaurantModel();
 
   constructor(
     private route: ActivatedRoute,

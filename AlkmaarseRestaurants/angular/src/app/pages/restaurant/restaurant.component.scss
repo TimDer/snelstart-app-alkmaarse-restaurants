@@ -1,0 +1,71 @@
+@use "sass:map";
+@import "/src/scss/bootstrap/bootstrap-start.scss";
+
+@import "/node_modules/bootstrap/scss/tables";
+
+.restaurant-sidebar-area {
+    padding: 0;
+
+    .aside-box {
+        background-color: #F2F2F2;
+        min-height: 70px;
+        border-radius: 5px;
+        padding: 15px;
+
+        .image-logo {
+            width: 100%;
+        }
+
+        .restaurant-speed-data {
+            margin-top: 10px;
+
+            ul {
+                margin-bottom: 0;
+            }
+        }
+
+        .restaurant-speed-data:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+.restaurant-content-area {
+    .restaurant-menu {
+        .restaurant-menu-list {
+            background-color: #F2F2F2;
+            padding: 10px;
+            border-radius: 5px;
+
+            .restaurant-menu-table {
+                @media screen and (max-width: 460px) {
+                    display: none;
+                }
+                @media screen and (width: 460px) {
+                    display: table;
+                }
+            }
+            .restaurant-menu-ul {
+                @media screen and (min-width: 460px) {
+                    display: none;
+                }
+                ul {
+                    border: 1px solid black;
+                    padding-bottom: 10px;
+                    padding-top: 10px;
+                    border-radius: 5px;
+                }
+                ul:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: map.get($grid-breakpoints, "md")) {
+        margin-bottom: 18px;
+    }
+    @media screen and (width: map.get($grid-breakpoints, "md")) {
+        margin-bottom: 0;
+    }
+}

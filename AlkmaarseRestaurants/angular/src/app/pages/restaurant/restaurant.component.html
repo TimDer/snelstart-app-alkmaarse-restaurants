@@ -1,4 +1,56 @@
-<app-restaurant-info [Restaurant]="Restaurant"
-                          [last]="true"
-                          [isRestaurantPage]="true">
-</app-restaurant-info>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 restaurant-content-area">
+            <section class="restaurant-basics">
+                <h1>{{ Restaurant.name }}</h1>
+                <p>{{ Restaurant.restaurantInfo.description }}</p>
+            </section>
+
+            <section class="restaurant-menu">
+                <h1>De menukaart van "{{ Restaurant.name }}"</h1>
+                <div class="restaurant-menu-list">
+                    <table class="table restaurant-menu-table">
+                        <thead>
+                            <tr>
+                                <th>Naam</th>
+                                <th>Beschrijving</th>
+                                <th>Prijs</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngFor="let menuItem of Restaurant.restaurantMenu">
+                                <tr>
+                                    <td>{{ menuItem.name }}</td>
+                                    <td>{{ menuItem.description }}</td>
+                                    <td>{{ menuItem.price }}</td>
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                    </table>
+                    <div class="restaurant-menu-ul">
+                        <ng-container *ngFor="let menuItem of Restaurant.restaurantMenu; last as last">
+                            <ul>
+                                <li>{{ menuItem.name }}</li>
+                                <li>{{ menuItem.description }}</li>
+                                <li>{{ menuItem.price }}</li>
+                            </ul>
+                        </ng-container>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <aside class="col-md-4 restaurant-sidebar-area">
+            <div class="aside-box">
+                <img [src]="Restaurant.imageLogo" alt="Restaurant logo: {{ Restaurant.name }}" class="image-logo">
+
+                <div class="restaurant-speed-data">
+                    <ul>
+                        <li>Restaurant Type: {{ Restaurant.restaurantType }}</li>
+                        <li>Adres: {{ Restaurant.address }}</li>
+                        <li>Straat naam: {{ Restaurant.streetName }} {{ Restaurant.streetNumber }}</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>

@@ -1,4 +1,6 @@
 import { IRestaurantModel } from "./IRestaurantModel";
+import { RestaurantInfoModel } from "./RestaurantInfoModel";
+import { RestaurantMenuItemModel } from "./RestaurantMenuItemModel";
 
 export class RestaurantModel implements IRestaurantModel {
     public id: number;
@@ -8,14 +10,18 @@ export class RestaurantModel implements IRestaurantModel {
     public streetNumber: string;
     public imageLogo: string;
     public restaurantType: string;
+    public restaurantInfo: RestaurantInfoModel;
+    public restaurantMenu: Array<RestaurantMenuItemModel>;
 
-    constructor(data: IRestaurantModel) {
-        this.id = data.id;
-        this.name = data.name;
-        this.address = data.address;
-        this.streetName = data.streetName;
-        this.streetNumber = data.streetNumber;
-        this.imageLogo = data.imageLogo;
-        this.restaurantType = data.restaurantType;
+    constructor() {
+        this.id = 0;
+        this.name = "";
+        this.address = "";
+        this.streetName = "";
+        this.streetNumber = "";
+        this.imageLogo = "";
+        this.restaurantType = "";
+        this.restaurantInfo = new RestaurantInfoModel();
+        this.restaurantMenu = [];
     }
 }

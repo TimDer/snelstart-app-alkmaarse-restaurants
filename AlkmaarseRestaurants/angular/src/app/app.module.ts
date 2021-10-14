@@ -8,7 +8,6 @@ import { FooterComponent } from './core/components/footer/footer.component';
 import { RouterModule, Routes } from '@angular/router';
 import { RestaurantsComponent } from './pages/restaurants/restaurants.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RestaurantInfoComponent } from './shared/components/restaurant-info/restaurant-info.component';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -29,7 +28,6 @@ const ngRoutes: Routes = [
     NavbarComponent,
     FooterComponent,
     RestaurantsComponent,
-    RestaurantInfoComponent,
     RestaurantComponent
   ],
   imports: [

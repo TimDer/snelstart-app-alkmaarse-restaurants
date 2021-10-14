@@ -13,99 +13,130 @@ namespace AlkmaarseRestaurants.DummyData
                 new RestaurantModel
                 {
                     Id = 0,
-                    Name = "Het aapen restaurant",
-                    Address = "Apeldoorn",
-                    StreetName = "Wilslaan",
-                    StreetNumber = 21,
-                    ImageLogo = "/assets/imagesRestaurantLogos/aap.jpg",
-                    RestaurantType = "Fast Foot",
+                    Name = "Turfmarkt Alkmaar",
+                    Address = "Alkmaar",
+                    StreetName = "Turfmarkt",
+                    StreetNumber = "11-23",
+                    PostalCode = "1813SC",
+                    ImageLogo = "/assets/imagesRestaurantLogos/Turfmarkt-Alkmaar.jpg",
+                    RestaurantType = "Fast Food",
                     RestaurantInfo = new RestaurantInfoModel
                     {
-                        Description = "Dit is het aapen restaurant van de aapen hier wordt je door aapen geholpen"
+                        Description = "Een kopje koffie met een krantje, gezellig lunchen met vriendinnen of een zakelijke bespreking? Een hapje eten voordat je de stad ingaat of uitgebreid dineren met de familie? Bedrijfsborrel, receptie of vergadering? Met een terras gelegen aan het water op loopafstand van het centrum, een heerlijke plek om de dag te beginnen of af te sluiten! Door de prachtige locatie van Turfmarkt zijn we van alle ‘markten’ thuis! Parkeren is geen probleem, naast Turfmarkt bevindt zich parkeergarage Schelphoek.",
+                        PhoneNumber = "072 531 4000",
+                        MobilePhoneNumber = "Geen",
+                        Website = "https://turfmarkt-alkmaar.nl/diner/",
+                        RestaurantTypes = new List<string>
+                        {
+                            "fas fa-hamburger"
+                        }
                     },
                     RestaurantMenu = new List<RestaurantMenuItemModel>
                     {
                         new RestaurantMenuItemModel
                         {
-                            Name = "Brootje hamburger",
-                            Description = "Een lekker brootje hamburger gemaakt door de aapen",
-                            Price = 38.45m
+                            Name = "Croissant",
+                            Description = "roomboter | jam",
+                            Price = 3.50m
                         },
                         new RestaurantMenuItemModel
                         {
-                            Name = "Brootje kaas",
-                            Description = "Een lekker brootje kaas gemaakt door de aapen",
-                            Price = 38.45m
-                        }
+                            Name = "Croissant",
+                            Description = "Beemsterkaas",
+                            Price = 3.50m
+                        },
+                        new RestaurantMenuItemModel
+                        {
+                            Name = "Acaï bowl",
+                            Description = "granola | banaan | kiwi",
+                            Price = 6.40m
+                        },
                     }
                 },
                 new RestaurantModel
                 {
                     Id = 1,
-                    Name = "Restaurant de crêpe",
+                    Name = "De Eendracht Alkmaar in ´t IJkgebouw",
                     Address = "Alkmaar",
-                    StreetName = "Pannekoekenstraat",
-                    StreetNumber = 12,
-                    ImageLogo = "/assets/imagesRestaurantLogos/Pannekoeken.jpg",
-                    RestaurantType = "Pannekoeken",
+                    StreetName = "Alckmariapad",
+                    StreetNumber = "2",
+                    PostalCode = "1811ML",
+                    ImageLogo = "/assets/imagesRestaurantLogos/De-Eendracht-Alkmaar-in-t-IJkgebouw.jpg",
+                    RestaurantType = "Fast Food",
                     RestaurantInfo = new RestaurantInfoModel
                     {
-                        Description = "Een groot manekoeken restaurant"
+                        Description = "Van IJkkantoor tot poppodium en van slooppand tot prachtige horecazaak; 't IJkgebouw is doorweven van historie. Bij De Eendracht in ’t IJkgebouw kan je ieder moment van de dag binnenwaaien in onze huiskamer, waar je betaalbaar en goed kunt eten. We noemen De Eendracht wel eens een buurtcafé en toprestaurant, waar je binnen een ongedwongen sfeer geniet van klassieke brasserie gerechten. Zon of regen, hier wil je eigenlijk niet meer weg!",
+                        PhoneNumber = "Geen",
+                        MobilePhoneNumber = "+31 725 826 036",
+                        Website = "https://www.deeendracht-alkmaar.nl",
+                        RestaurantTypes = new List<string>
+                        {
+                            "fas fa-hamburger"
+                        }
                     },
                     RestaurantMenu = new List<RestaurantMenuItemModel>
                     {
                         new RestaurantMenuItemModel
                         {
-                            Name = "Pannenkoek met stroop",
-                            Description = "Een pannenkoek met stroop",
-                            Price = 12.25m
-                        }
+                            Name = "Croissant",
+                            Description = "Met boter en een bramenjam met steranijs",
+                            Price = 3.75m
+                        },
+                        new RestaurantMenuItemModel
+                        {
+                            Name = "Hangop",
+                            Description = "Met granola en vers fruit",
+                            Price = 7.50m
+                        },
+                        new RestaurantMenuItemModel
+                        {
+                            Name = "Kalfskroketten",
+                            Description = "Met brood en mosterd",
+                            Price = 9.50m
+                        },
                     }
                 },
                 new RestaurantModel
                 {
                     Id = 2,
-                    Name = "Naam 1",
-                    Address = "Address 1",
-                    StreetName = "Straat 1",
-                    StreetNumber = 22,
-                    ImageLogo = "/assets/imagesRestaurantLogos/foto1.jpg",
-                    RestaurantType = "Type 1",
+                    Name = "Proeflokaal Bregje Alkmaar",
+                    Address = "Alkmaar",
+                    StreetName = "Paardenmarkt",
+                    StreetNumber = "4",
+                    PostalCode = "1811KH",
+                    ImageLogo = "/assets/imagesRestaurantLogos/Proeflokaal-Bregje-Alkmaar.jpg",
+                    RestaurantType = "Fast Food",
                     RestaurantInfo = new RestaurantInfoModel
                     {
-                        Description = "Description 1"
+                        Description = "Van IJkkantoor tot poppodium en van slooppand tot prachtige horecazaak; 't IJkgebouw is doorweven van historie. Bij De Eendracht in ’t IJkgebouw kan je ieder moment van de dag binnenwaaien in onze huiskamer, waar je betaalbaar en goed kunt eten. We noemen De Eendracht wel eens een buurtcafé en toprestaurant, waar je binnen een ongedwongen sfeer geniet van klassieke brasserie gerechten. Zon of regen, hier wil je eigenlijk niet meer weg!",
+                        PhoneNumber = "Geen",
+                        MobilePhoneNumber = "+31 723 030 402",
+                        Website = "https://www.proeflokaalbregje.nl",
+                        RestaurantTypes = new List<string>
+                        {
+                            "fas fa-hamburger"
+                        }
                     },
                     RestaurantMenu = new List<RestaurantMenuItemModel>
                     {
                         new RestaurantMenuItemModel
                         {
-                            Name = "Name 1",
-                            Description = "Description 1",
-                            Price = 57.32m
-                        }
-                    }
-                },
-                new RestaurantModel
-                {
-                    Id = 3,
-                    Name = "Naam 2",
-                    Address = "Address 2",
-                    StreetName = "Straat 2",
-                    StreetNumber = 54,
-                    ImageLogo = "/assets/imagesRestaurantLogos/foto2.jpg",
-                    RestaurantType = "Type 2",
-                    RestaurantInfo = new RestaurantInfoModel
-                    {
-                        Description = "Description 2"
-                    },
-                    RestaurantMenu = new List<RestaurantMenuItemModel>
-                    {
+                            Name = "Gerookte zalm",
+                            Description = "Met saffraanmayonaise, bosui en rucola",
+                            Price = 7.00m
+                        },
                         new RestaurantMenuItemModel
                         {
-                            Name = "Name 2",
-                            Description = "Description 2",
-                            Price = 5769.45m
-                        }
+                            Name = "Geitenkaas",
+                            Description = "Met honing, gekaramelliseerde pecannoten en rucola",
+                            Price = 6.00m
+                        },
+                        new RestaurantMenuItemModel
+                        {
+                            Name = "Rundvleeskroketten",
+                            Description = "2 ambachtelijke rundvleeskroketten",
+                            Price = 6.00m
+                        },
                     }
                 }
             };

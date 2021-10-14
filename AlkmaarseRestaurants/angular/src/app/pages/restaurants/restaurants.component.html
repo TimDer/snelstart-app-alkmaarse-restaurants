@@ -1,6 +1,8 @@
-<ng-container *ngFor="let Restaurant of Restaurants; last as last;">
-    <app-restaurant-info [Restaurant]="Restaurant"
-                              [last]="last"
-                              [isRestaurantPage]="false">
-    </app-restaurant-info>
-</ng-container>
+<div class="padding-10px">
+    <ng-container *ngFor="let Restaurant of Restaurants; last as last;">
+        <app-restaurant-info [Restaurant]="Restaurant"
+                                  [last]="last"
+                                  [isRestaurantPage]="false">
+        </app-restaurant-info>
+    </ng-container>
+</div>

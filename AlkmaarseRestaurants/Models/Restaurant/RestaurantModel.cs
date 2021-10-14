@@ -11,7 +11,8 @@ namespace AlkmaarseRestaurants.Models.Restaurant
         public string Name { get; set; }
         public string Address { get; set; }
         public string StreetName { get; set; }
-        public int StreetNumber { get; set; }
+        public string StreetNumber { get; set; }
+        public string PostalCode { get; set; }
         public string ImageLogo { get; set; }
         public string RestaurantType { get; set; }
         public RestaurantInfoModel RestaurantInfo { get; set; }

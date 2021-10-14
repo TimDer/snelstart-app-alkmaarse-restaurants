@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-8 restaurant-content-area">
+        <div class="col-md-9 restaurant-content-area scrollbar-md-up">
             <section class="restaurant-basics">
                 <h1>{{ Restaurant.name }}</h1>
                 <p>{{ Restaurant.restaurantInfo.description }}</p>
@@ -39,18 +39,64 @@
                 </div>
             </section>
         </div>
-        <aside class="col-md-4 restaurant-sidebar-area">
-            <div class="aside-box">
+        <aside class="col-md-3 restaurant-sidebar-area">
+            <div class="aside-box scrollbar-md-up padding-right-0px padding-md-down-left-0px">
                 <img [src]="Restaurant.imageLogo" alt="Restaurant logo: {{ Restaurant.name }}" class="image-logo">
 
-                <div class="restaurant-speed-data">
-                    <ul>
-                        <li>Restaurant Type: {{ Restaurant.restaurantType }}</li>
-                        <li>Adres: {{ Restaurant.address }}</li>
-                        <li>Straat naam: {{ Restaurant.streetName }} {{ Restaurant.streetNumber }}</li>
-                    </ul>
+                <div class="restaurant-speed-data margin-top-10px">
+                    <span class="small-text">
+                        <i class="{{ restaurantType }}" *ngFor="let restaurantType of Restaurant.restaurantInfo.restaurantTypes"></i>
+                        <p><i class="fas fa-home"></i>: {{ Restaurant.streetName }} {{ Restaurant.streetNumber }}</p>
+                        <p><i class="fas fa-phone"></i>: {{ Restaurant.restaurantInfo.phoneNumber }}</p>
+                        <p><i class="fas fa-mobile-alt"></i>: {{ Restaurant.restaurantInfo.mobilePhoneNumber }}</p>
+                        <a href="{{ Restaurant.restaurantInfo.website }}" class="btn btn-primary btn-block" target="_blank">Website</a>
+                        <button class="btn btn-primary btn-block" type="button" data-toggle="modal" data-target="#restaurantContactModal">
+                            Contact
+                        </button>
+                        <div class="alert alert-success margin-top-8px" *ngIf="MessageSent">
+                            Je hebt een bericht verzonden
+                        </div>
+                    </span>
                 </div>
             </div>
         </aside>
     </div>
 </div>
+
+
+<form #restaurantContect="ngForm" (ngSubmit)="onRestaurantSubmit(restaurantContect.value, restaurantContect)" [formGroup]="RestaurantContactForm">
+    <div class="modal fade" id="restaurantContactModal" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Contact: {{ Restaurant.name }}</h5>
+                    <button class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body padding-top-6px">
+                    <ng-container *ngIf="!MessageSent">
+                        <p class="margin-0px">Naam:</p>
+                        <input name="name" type="text" class="form-control" ngModel formControlName="name">
+    
+                        <p class="margin-0px">Onderwerp:</p>
+                        <input name="subject" type="text" class="form-control" ngModel formControlName="subject">
+    
+                        <p class="margin-0px">Jouw e-mail:</p>
+                        <input name="email" type="email" class="form-control" ngModel formControlName="email">
+    
+                        <p class="margin-0px">Bericht:</p>
+                        <textarea name="message" rows="8" class="form-control" ngModel formControlName="message"></textarea>
+                    </ng-container>
+                    <ng-container *ngIf="MessageSent">
+                        <p class="margin-0px padding-top-4px">Je hebt al een bericht verzonden naar dit restaurant</p>
+                    </ng-container>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Sluiten</button>
+                    <input type="submit" class="btn btn-primary">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

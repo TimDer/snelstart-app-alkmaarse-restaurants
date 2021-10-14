@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RestaurantModel } from 'src/app/shared/models/RestaurantModel';
+import { RestaurantContactModal } from 'src/app/shared/models/Restaurant/RestaurantContactModal';
+import { RestaurantModel } from 'src/app/shared/models/Restaurant/RestaurantModel';
 import { RestaurantApiService } from 'src/app/shared/services/apis/restaurant/restaurant-api.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+declare let $: any;
 
 @Component({
   selector: 'app-restaurant',
@@ -11,6 +15,14 @@ import { RestaurantApiService } from 'src/app/shared/services/apis/restaurant/re
 export class RestaurantComponent implements OnInit {
 
   public Restaurant: RestaurantModel = new RestaurantModel();
+  public MessageSent: boolean = false;
+
+  public RestaurantContactForm: FormGroup = new FormGroup({
+    name: new FormControl("", Validators.required),
+    subject: new FormControl("", Validators.required),
+    email: new FormControl("", [Validators.email, Validators.required]),
+    message: new FormControl("", Validators.required)
+  });
 
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +35,27 @@ export class RestaurantComponent implements OnInit {
       (restaurantData: RestaurantModel) => {
         this.Restaurant = restaurantData;
       });
+  }
+
+  public onRestaurantSubmit(data: RestaurantContactModal, rawData: any) {
+    if (this.onValidForm()) {
+      $("#restaurantContactModal").modal("hide");
+
+      setTimeout(() => {
+        this.MessageSent = true;
+      }, 500);
+
+      rawData.reset();
+    }
+  }
+
+  private onValidForm(): any {
+    const name = this.RestaurantContactForm.get("name")?.valid;
+    const subject = this.RestaurantContactForm.get("subject")?.valid;
+    const email = this.RestaurantContactForm.get("email")?.valid;
+    const message = this.RestaurantContactForm.get("message")?.valid;
+
+    return name && subject && email && message;
   }
 
 }

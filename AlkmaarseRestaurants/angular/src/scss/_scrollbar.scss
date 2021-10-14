@@ -1,0 +1,45 @@
+@use "sass:map";
+
+@import "/src/scss/bootstrap/bootstrap-start.scss";
+
+@mixin scrollbar-min {
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #F2F2F2;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: gray;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: #343a40;
+    }
+}
+
+$scrollbar-breakpoints: "xs", "sm", "md", "lg", "xl";
+
+@mixin getScrollbar() {
+    .scrollbar {
+        @include scrollbar-min();
+    }
+
+    @each $scrollbar-breakpoint in $scrollbar-breakpoints {
+        .scrollbar-#{$scrollbar-breakpoint}-down {
+            @media screen and (max-width: map.get($grid-breakpoints, $scrollbar-breakpoint)) {
+                @include scrollbar-min();
+            }
+        }
+    
+        .scrollbar-#{$scrollbar-breakpoint}-up {
+            @media screen and (min-width: map.get($grid-breakpoints, $scrollbar-breakpoint)) {
+                @include scrollbar-min();
+            }
+        }
+    }   
+}

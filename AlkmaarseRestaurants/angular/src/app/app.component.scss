@@ -3,7 +3,7 @@
 @import "/node_modules/bootstrap/scss/grid";
 
 .container {
-    background-color: gray;
+    background-image: linear-gradient(#F2F2F2 40%, #BFBFBF);
     min-height: 100vh;
     padding: 0;
 
@@ -12,10 +12,10 @@
         min-height: 100%;
 
         .main-colour {
+            overflow-x: hidden !important;
             box-sizing: border-box;
-            padding: 10px;
             border-radius: 5px;
-            min-height: calc(100vh - ( 2 * 70px ));
+            height: calc(100vh - ( 2 * 70px ));
             background-color: #FFFFFF;
         }
     }

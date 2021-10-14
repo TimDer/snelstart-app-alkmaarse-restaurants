@@ -1,9 +1,28 @@
+// custom scss
+@use "/src/scss/bootstrap/bootstrap-start.scss" as bsvars;
+@use "/src/scss/margin-padding" as mp with(
+    $breakpoints: ("xs", "sm", "md", "lg", "xl"),
+    $breakpoints-sizes: bsvars.$grid-breakpoints
+);
+@use "/src/scss/scrollbar" as sb;
+
+// bootstrap required
 @import "scss/bootstrap/bootstrap-start.scss";
 
+// boorstrap optional
 @import "/node_modules/bootstrap/scss/root";
 @import "/node_modules/bootstrap/scss/reboot";
 @import "/node_modules/bootstrap/scss/grid";
+@import "/node_modules/bootstrap/scss/buttons";
+@import "/node_modules/bootstrap/scss/modal";
+
+@include mp.margin-padding();
+@include sb.getScrollbar();
 
 body {
     overflow: hidden;
+}
+
+span.small-text {
+    font-size: 13px;
 }

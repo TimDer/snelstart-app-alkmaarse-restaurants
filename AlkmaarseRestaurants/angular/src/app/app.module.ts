@@ -10,6 +10,7 @@ import { RestaurantsComponent } from './pages/restaurants/restaurants.component'
 import { HttpClientModule } from '@angular/common/http';
 import { RestaurantInfoComponent } from './shared/components/restaurant-info/restaurant-info.component';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const ngRoutes: Routes = [
   {
@@ -35,6 +36,8 @@ const ngRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(ngRoutes)
   ],
   providers: [],

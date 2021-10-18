@@ -1,5 +1,6 @@
 import { RestaurantInfoModel } from "./RestaurantInfoModel";
 import { RestaurantMenuItemModel } from "./RestaurantMenuItemModel";
+import { RestaurantTypeModel } from "./RestaurantTypeModel";
 
 export interface IRestaurantModel {
     id: number
@@ -8,7 +9,7 @@ export interface IRestaurantModel {
     streetName: string
     streetNumber: string
     imageLogo: string
-    restaurantType: string
+    restaurantType: RestaurantTypeModel
     restaurantInfo: RestaurantInfoModel
     restaurantMenu: Array<RestaurantMenuItemModel>
 }

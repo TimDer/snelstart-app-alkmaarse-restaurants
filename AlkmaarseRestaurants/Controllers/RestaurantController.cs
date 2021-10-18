@@ -27,5 +27,12 @@ namespace AlkmaarseRestaurants.Controllers
 
             return StatusCode(404);
         }
+
+        [HttpGet]
+        public IActionResult GetRestaurantTypes()
+        {
+            var data = new RestaurantTypeDummyData();
+            return Json(data.RestaurantTypes);
+        }
     }
 }

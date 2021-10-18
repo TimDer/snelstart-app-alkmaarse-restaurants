@@ -9,6 +9,8 @@ namespace AlkmaarseRestaurants.DummyData
 
         public RestaurantsDummyData()
         {
+            var restaurantTypes = new RestaurantTypeDummyData();
+
             Restaurants = new List<RestaurantModel> {
                 new RestaurantModel
                 {
@@ -19,7 +21,7 @@ namespace AlkmaarseRestaurants.DummyData
                     StreetNumber = "11-23",
                     PostalCode = "1813SC",
                     ImageLogo = "/assets/imagesRestaurantLogos/Turfmarkt-Alkmaar.jpg",
-                    RestaurantType = "Fast Food",
+                    RestaurantType = restaurantTypes.RestaurantTypes[0],
                     RestaurantInfo = new RestaurantInfoModel
                     {
                         Description = "Een kopje koffie met een krantje, gezellig lunchen met vriendinnen of een zakelijke bespreking? Een hapje eten voordat je de stad ingaat of uitgebreid dineren met de familie? Bedrijfsborrel, receptie of vergadering? Met een terras gelegen aan het water op loopafstand van het centrum, een heerlijke plek om de dag te beginnen of af te sluiten! Door de prachtige locatie van Turfmarkt zijn we van alle ‘markten’ thuis! Parkeren is geen probleem, naast Turfmarkt bevindt zich parkeergarage Schelphoek.",
@@ -62,7 +64,7 @@ namespace AlkmaarseRestaurants.DummyData
                     StreetNumber = "2",
                     PostalCode = "1811ML",
                     ImageLogo = "/assets/imagesRestaurantLogos/De-Eendracht-Alkmaar-in-t-IJkgebouw.jpg",
-                    RestaurantType = "Fast Food",
+                    RestaurantType = restaurantTypes.RestaurantTypes[2],
                     RestaurantInfo = new RestaurantInfoModel
                     {
                         Description = "Van IJkkantoor tot poppodium en van slooppand tot prachtige horecazaak; 't IJkgebouw is doorweven van historie. Bij De Eendracht in ’t IJkgebouw kan je ieder moment van de dag binnenwaaien in onze huiskamer, waar je betaalbaar en goed kunt eten. We noemen De Eendracht wel eens een buurtcafé en toprestaurant, waar je binnen een ongedwongen sfeer geniet van klassieke brasserie gerechten. Zon of regen, hier wil je eigenlijk niet meer weg!",
@@ -105,7 +107,7 @@ namespace AlkmaarseRestaurants.DummyData
                     StreetNumber = "4",
                     PostalCode = "1811KH",
                     ImageLogo = "/assets/imagesRestaurantLogos/Proeflokaal-Bregje-Alkmaar.jpg",
-                    RestaurantType = "Fast Food",
+                    RestaurantType = restaurantTypes.RestaurantTypes[3],
                     RestaurantInfo = new RestaurantInfoModel
                     {
                         Description = "Van IJkkantoor tot poppodium en van slooppand tot prachtige horecazaak; 't IJkgebouw is doorweven van historie. Bij De Eendracht in ’t IJkgebouw kan je ieder moment van de dag binnenwaaien in onze huiskamer, waar je betaalbaar en goed kunt eten. We noemen De Eendracht wel eens een buurtcafé en toprestaurant, waar je binnen een ongedwongen sfeer geniet van klassieke brasserie gerechten. Zon of regen, hier wil je eigenlijk niet meer weg!",

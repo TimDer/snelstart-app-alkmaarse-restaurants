@@ -1,9 +1,16 @@
 <div class="padding-10px">
-    <ng-container *ngFor="let Restaurant of Restaurants; last as last;">
-        <div class="container-fluid restaurant-rows">
+    <ng-container *ngTemplateOutlet="restaurantFilter"></ng-container>
+
+    <ng-container *ngTemplateOutlet="restaurantLayout"></ng-container>
+</div>
+
+
+<ng-template #restaurantLayout>
+    <div class="container-fluid restaurant-rows" *ngFor="let Restaurant of Restaurants; last as last;">
+        <ng-container *ngIf="Restaurant.restaurantType.name == RestaurantTypeSelected || !RestaurantFilterSelected">
+            <hr>
             <div class="row">
                 <div class="col-sm-6 col-md-5 col-lg-4">
-                    <app-restaurants-logo [src]="Restaurant.imageLogo" [height]="'auto'"></app-restaurants-logo>
                     <img [src]="Restaurant.imageLogo" alt="Restaurant logo: {{ Restaurant.name }}" class="img">
                 </div>
                 <div class="col-sm-6 col-md-7 col-lg-8">
@@ -22,15 +29,34 @@
                             </div>
                             <div class="col">
                                 <ul>
-                                    <li>Restaurant type: {{ Restaurant.restaurantType }}</li>
+                                    <li>Restaurant type: {{ Restaurant.restaurantType.displayName }}</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <hr *ngIf="last !== true">
+        </ng-container>
+    </div>
+</ng-template>
+
+<ng-template #restaurantFilter>
+    <div class="btn-group">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="collapse" data-target="#restaurant-filter-selecter">Filteren</button>
+        <div class="dropdown-menu padding-8px restaurant-filter" id="restaurant-filter-selecter">
+            <form #restaurantFilter>
+                <p>
+                    <input  type="checkbox"
+                            class="filter-checkbox"
+                            [checked]="RestaurantFilterSelected"
+                            (change)="onFilterChange($event)">Gebruik filter
+                </p>
+
+                <p class="margin-0px">Restaurant type:</p>
+                <select name="restaurantType" class="form-control" [(ngModel)]="RestaurantTypeSelected">
+                    <option [value]="restaurant.name" *ngFor="let restaurant of RestaurantTypes">{{ restaurant.displayName }}</option>
+                </select>
+            </form>
         </div>
-    </ng-container>
-</div>
+    </div>
+</ng-template>

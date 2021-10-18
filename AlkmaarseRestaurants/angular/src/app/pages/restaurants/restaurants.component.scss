@@ -1,9 +1,21 @@
 @import "/src/scss/bootstrap/bootstrap-start.scss";
 
 @import "/node_modules/bootstrap/scss/grid";
+@import "/node_modules/bootstrap/scss/dropdown";
 
 .container-fluid {
     padding: 0;
+}
+
+.restaurant-rows {
+    .img {
+        border-radius: 40px;
+        width: 100%;
+    
+        @include media-breakpoint-up(sm) {
+            border-radius: 10px;
+        }
+    }
 }
 
 hr {
@@ -11,11 +23,13 @@ hr {
     border-top: 1px inset gray;
 }
 
-.img {
-    border-radius: 40px;
-    width: 100%;
+.restaurant-filter {
+    width: 300px;
 
-    @include media-breakpoint-up(sm) {
-        border-radius: 10px;
+    .filter-checkbox {
+        transform: translateY(6px);
+        margin-right: 2px;
+        width: 25px;
+        height: 25px;
     }
 }

@@ -44,11 +44,11 @@
                 <img [src]="Restaurant.imageLogo" alt="Restaurant logo: {{ Restaurant.name }}" class="image-logo">
 
                 <div class="restaurant-speed-data margin-top-10px">
+                    <i class="{{ restaurantType }}" *ngFor="let restaurantType of Restaurant.restaurantInfo.restaurantTypes"></i>
                     <span class="small-text">
-                        <i class="{{ restaurantType }}" *ngFor="let restaurantType of Restaurant.restaurantInfo.restaurantTypes"></i>
                         <p><i class="fas fa-home"></i>: {{ Restaurant.streetName }} {{ Restaurant.streetNumber }}</p>
-                        <p><i class="fas fa-phone"></i>: {{ Restaurant.restaurantInfo.phoneNumber }}</p>
-                        <p><i class="fas fa-mobile-alt"></i>: {{ Restaurant.restaurantInfo.mobilePhoneNumber }}</p>
+                        <p><i class="fas fa-phone"></i>: <a href="tel:{{ Restaurant.restaurantInfo.phoneNumber }}">{{ Restaurant.restaurantInfo.phoneNumber }}</a></p>
+                        <p><i class="fas fa-mobile-alt"></i>: <a href="tel:{{ Restaurant.restaurantInfo.mobilePhoneNumber }}">{{ Restaurant.restaurantInfo.mobilePhoneNumber }}</a></p>
                         <a href="{{ Restaurant.restaurantInfo.website }}" class="btn btn-primary btn-block" target="_blank">Website</a>
                         <button class="btn btn-primary btn-block" type="button" data-toggle="modal" data-target="#restaurantContactModal">
                             Contact
@@ -66,7 +66,7 @@
 
 <form #restaurantContect="ngForm" (ngSubmit)="onRestaurantSubmit(restaurantContect.value, restaurantContect)" [formGroup]="RestaurantContactForm">
     <div class="modal fade" id="restaurantContactModal" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Contact: {{ Restaurant.name }}</h5>

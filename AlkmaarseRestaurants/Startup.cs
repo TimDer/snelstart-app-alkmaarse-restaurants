@@ -15,7 +15,7 @@ namespace AlkmaarseRestaurants
         {
             services.AddControllers();
             services.AddSpaStaticFiles(conf => {
-                conf.RootPath = "angular/dist";
+                conf.RootPath = "angular/dist/angular";
             });
         }
 

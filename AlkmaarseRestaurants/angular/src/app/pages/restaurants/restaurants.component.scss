@@ -8,14 +8,7 @@
 }
 
 .restaurant-rows {
-    .img {
-        border-radius: 40px;
-        width: 100%;
-    
-        @include media-breakpoint-up(sm) {
-            border-radius: 10px;
-        }
-    }
+
 }
 
 hr {

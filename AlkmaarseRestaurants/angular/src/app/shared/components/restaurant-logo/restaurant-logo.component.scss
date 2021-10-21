@@ -1,0 +1,13 @@
+.logo-container {
+    padding: 10px;
+    background-color: #DBDBDB;
+    box-sizing: border-box;
+
+    .img-container {
+        height: 100%;
+        width: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}

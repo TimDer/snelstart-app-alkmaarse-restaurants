@@ -10,6 +10,7 @@ import { RestaurantsComponent } from './pages/restaurants/restaurants.component'
 import { HttpClientModule } from '@angular/common/http';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RestaurantLogoComponent } from './shared/components/restaurant-logo/restaurant-logo.component';
 
 const ngRoutes: Routes = [
   {
@@ -28,7 +29,8 @@ const ngRoutes: Routes = [
     NavbarComponent,
     FooterComponent,
     RestaurantsComponent,
-    RestaurantComponent
+    RestaurantComponent,
+    RestaurantLogoComponent
   ],
   imports: [
     BrowserModule,

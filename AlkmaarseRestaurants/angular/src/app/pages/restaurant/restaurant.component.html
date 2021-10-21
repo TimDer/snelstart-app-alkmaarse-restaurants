@@ -41,7 +41,7 @@
         </div>
         <aside class="col-md-3 restaurant-sidebar-area">
             <div class="aside-box scrollbar-md-up padding-right-0px padding-md-down-left-0px">
-                <img [src]="Restaurant.imageLogo" alt="Restaurant logo: {{ Restaurant.name }}" class="image-logo">
+                <app-restaurant-logo [src]="Restaurant.imageLogo"></app-restaurant-logo>
 
                 <div class="restaurant-speed-data margin-top-10px">
                     <i class="{{ restaurantType }}" *ngFor="let restaurantType of Restaurant.restaurantInfo.restaurantTypes"></i>

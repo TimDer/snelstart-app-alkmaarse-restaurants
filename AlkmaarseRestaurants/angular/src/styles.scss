@@ -21,6 +21,11 @@
 @include mp.margin-padding();
 @include sb.getScrollbar();
 
+.custom-hr {
+    border: 0px;
+    border-top: 1px inset gray;
+}
+
 body {
     overflow: hidden;
 }

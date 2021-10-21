@@ -45,6 +45,7 @@
 
                 <div class="restaurant-speed-data margin-top-10px">
                     <i class="{{ restaurantType }}" *ngFor="let restaurantType of Restaurant.restaurantInfo.restaurantTypes"></i>
+                    <hr class="custom-hr">
                     <span class="small-text">
                         <p><i class="fas fa-home"></i>: {{ Restaurant.streetName }} {{ Restaurant.streetNumber }}</p>
                         <p><i class="fas fa-phone"></i>: <a href="tel:{{ Restaurant.restaurantInfo.phoneNumber }}">{{ Restaurant.restaurantInfo.phoneNumber }}</a></p>

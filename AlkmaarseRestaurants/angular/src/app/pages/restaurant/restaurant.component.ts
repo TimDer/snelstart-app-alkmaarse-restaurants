@@ -4,6 +4,7 @@ import { RestaurantContactModal } from 'src/app/shared/models/Restaurant/Restaur
 import { RestaurantModel } from 'src/app/shared/models/Restaurant/RestaurantModel';
 import { RestaurantApiService } from 'src/app/shared/services/apis/restaurant/restaurant-api.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { RestaurantMenuItemModel } from 'src/app/shared/models/Restaurant/RestaurantMenuItemModel';
 
 declare let $: any;
 
@@ -33,6 +34,16 @@ export class RestaurantComponent implements OnInit {
     this.restaurantApiService.getOwnRestaurant(
       this.route.snapshot.paramMap.get("id") || "",
       (restaurantData: RestaurantModel) => {
+        // Looping through the menu in order to trigger the price setter
+        let priceToMenu: Array<RestaurantMenuItemModel> = [];
+        restaurantData.restaurantMenu.forEach((value, key) => {
+          const newArray: RestaurantMenuItemModel = new RestaurantMenuItemModel();
+          newArray.price = value.price;
+          newArray.name = value.name;
+          newArray.description = value.description;
+          priceToMenu[key] = newArray;
+        });
+        restaurantData.restaurantMenu = priceToMenu;
         this.Restaurant = restaurantData;
       });
   }

@@ -48,8 +48,12 @@
                     <hr class="custom-hr">
                     <span class="small-text">
                         <p><i class="fas fa-home"></i>: {{ Restaurant.streetName }} {{ Restaurant.streetNumber }}</p>
-                        <p><i class="fas fa-phone"></i>: <a href="tel:{{ Restaurant.restaurantInfo.phoneNumber }}">{{ Restaurant.restaurantInfo.phoneNumber }}</a></p>
-                        <p><i class="fas fa-mobile-alt"></i>: <a href="tel:{{ Restaurant.restaurantInfo.mobilePhoneNumber }}">{{ Restaurant.restaurantInfo.mobilePhoneNumber }}</a></p>
+                        <p *ngIf="Restaurant.restaurantInfo.phoneNumber !== 'Geen'">
+                            <i class="fas fa-phone"></i>: <a href="tel:{{ Restaurant.restaurantInfo.phoneNumber }}">{{ Restaurant.restaurantInfo.phoneNumber }}</a>
+                        </p>
+                        <p *ngIf="Restaurant.restaurantInfo.mobilePhoneNumber !== 'Geen'">
+                            <i class="fas fa-mobile-alt"></i>: <a href="tel:{{ Restaurant.restaurantInfo.mobilePhoneNumber }}">{{ Restaurant.restaurantInfo.mobilePhoneNumber }}</a>
+                        </p>
                         <a href="{{ Restaurant.restaurantInfo.website }}" class="btn btn-primary btn-block" target="_blank">Website</a>
                         <button class="btn btn-primary btn-block" type="button" data-toggle="modal" data-target="#restaurantContactModal">
                             Contact

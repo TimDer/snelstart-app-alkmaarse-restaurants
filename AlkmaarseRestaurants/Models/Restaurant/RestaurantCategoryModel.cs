@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AlkmaarseRestaurants.Models.Restaurant
 {
-    public class RestaurantTypeModel
+    public class RestaurantCategoryModel
     {
         public int Id { get; set; }
 

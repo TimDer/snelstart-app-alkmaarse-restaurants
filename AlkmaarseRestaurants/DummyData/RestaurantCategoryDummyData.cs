@@ -3,33 +3,33 @@ using System.Collections.Generic;
 
 namespace AlkmaarseRestaurants.DummyData
 {
-    public class RestaurantTypeDummyData
+    public class RestaurantCategoryDummyData
     {
-        public List<RestaurantTypeModel> RestaurantTypes { get; set; }
+        public List<RestaurantCategoryModel> RestaurantCategories { get; set; }
 
-        public RestaurantTypeDummyData()
+        public RestaurantCategoryDummyData()
         {
-            this.RestaurantTypes = new List<RestaurantTypeModel>
+            this.RestaurantCategories = new List<RestaurantCategoryModel>
             {
-                new RestaurantTypeModel
+                new RestaurantCategoryModel
                 {
                     Id = 0,
                     Name = "fast-food",
                     DisplayName = "Fast food"
                 },
-                new RestaurantTypeModel
+                new RestaurantCategoryModel
                 {
                     Id = 1,
                     Name = "chinese",
                     DisplayName = "Chinese"
                 },
-                new RestaurantTypeModel
+                new RestaurantCategoryModel
                 {
                     Id = 2,
                     Name = "turks",
                     DisplayName = "Turks"
                 },
-                new RestaurantTypeModel
+                new RestaurantCategoryModel
                 {
                     Id = 3,
                     Name = "wok",

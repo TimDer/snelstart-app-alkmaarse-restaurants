@@ -31,8 +31,8 @@ namespace AlkmaarseRestaurants.Controllers
         [HttpGet]
         public IActionResult GetRestaurantTypes()
         {
-            var data = new RestaurantTypeDummyData();
-            return Json(data.RestaurantTypes);
+            var data = new RestaurantCategoryDummyData();
+            return Json(data.RestaurantCategories);
         }
     }
 }

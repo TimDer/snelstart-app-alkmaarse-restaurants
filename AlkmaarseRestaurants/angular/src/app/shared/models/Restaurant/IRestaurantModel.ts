@@ -8,6 +8,7 @@ export interface IRestaurantModel {
     address: string
     streetName: string
     streetNumber: string
+    postalCode: string
     imageLogo: string
     restaurantType: RestaurantTypeModel
     restaurantInfo: RestaurantInfoModel

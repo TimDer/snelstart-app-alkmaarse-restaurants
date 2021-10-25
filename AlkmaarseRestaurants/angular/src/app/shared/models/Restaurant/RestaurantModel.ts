@@ -9,6 +9,7 @@ export class RestaurantModel implements IRestaurantModel {
     public address: string;
     public streetName: string;
     public streetNumber: string;
+    public postalCode: string;
     public imageLogo: string;
     public restaurantType: RestaurantTypeModel;
     public restaurantInfo: RestaurantInfoModel;
@@ -20,6 +21,7 @@ export class RestaurantModel implements IRestaurantModel {
         this.address = "";
         this.streetName = "";
         this.streetNumber = "";
+        this.postalCode = "";
         this.imageLogo = "";
         this.restaurantType = new RestaurantTypeModel();
         this.restaurantInfo = new RestaurantInfoModel();

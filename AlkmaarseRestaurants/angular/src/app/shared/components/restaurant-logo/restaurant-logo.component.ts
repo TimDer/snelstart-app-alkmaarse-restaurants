@@ -28,7 +28,7 @@ export class RestaurantLogoComponent implements AfterViewInit {
   public altStyle: any = {};
 
   @ViewChild("containerElement")
-  public containerElement!: ElementRef;
+  public containerElement!: ElementRef<HTMLElement>;
 
   constructor() { }
 

@@ -62,7 +62,7 @@ export class RestaurantComponent implements OnInit, AfterViewInit {
   }
 
   public bootstrapTooltipRestaurantTypeTitle(name: string, description: string): string {
-    return  "<p>" + name + "</p>" + 
+    return  "<p class='margin-bottom-5px'>" + name + "</p>" + 
             "<div>" + description + "</div>";
   }
 

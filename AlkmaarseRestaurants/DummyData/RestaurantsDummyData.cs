@@ -28,9 +28,14 @@ namespace AlkmaarseRestaurants.DummyData
                         PhoneNumber = "072 531 4000",
                         MobilePhoneNumber = "Geen",
                         Website = "https://turfmarkt-alkmaar.nl/diner/",
-                        RestaurantTypes = new List<string>
+                        RestaurantTypes = new List<RestaurantTypeModel>
                         {
-                            "fas fa-hamburger"
+                            new RestaurantTypeModel()
+                            {
+                                Name = "Fast food",
+                                Description = "In dit restaurant kun je fast food kopen",
+                                CssClass = "fas fa-hamburger"
+                            }
                         }
                     },
                     RestaurantMenu = new List<RestaurantMenuItemModel>
@@ -71,9 +76,14 @@ namespace AlkmaarseRestaurants.DummyData
                         PhoneNumber = "Geen",
                         MobilePhoneNumber = "+31 725 826 036",
                         Website = "https://www.deeendracht-alkmaar.nl",
-                        RestaurantTypes = new List<string>
+                        RestaurantTypes = new List<RestaurantTypeModel>
                         {
-                            "fas fa-hamburger"
+                            new RestaurantTypeModel()
+                            {
+                                Name = "Name",
+                                Description = "",
+                                CssClass = "fas fa-hamburger"
+                            }
                         }
                     },
                     RestaurantMenu = new List<RestaurantMenuItemModel>
@@ -114,9 +124,14 @@ namespace AlkmaarseRestaurants.DummyData
                         PhoneNumber = "Geen",
                         MobilePhoneNumber = "+31 723 030 402",
                         Website = "https://www.proeflokaalbregje.nl",
-                        RestaurantTypes = new List<string>
+                        RestaurantTypes = new List<RestaurantTypeModel>
                         {
-                            "fas fa-hamburger"
+                            new RestaurantTypeModel
+                            {
+                                Name = "hello",
+                                Description = "",
+                                CssClass = "fas fa-hamburger"
+                            }
                         }
                     },
                     RestaurantMenu = new List<RestaurantMenuItemModel>

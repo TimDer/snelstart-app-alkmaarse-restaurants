@@ -8,6 +8,6 @@ namespace AlkmaarseRestaurants.Models.Restaurant
         public string PhoneNumber { get; set; }
         public string MobilePhoneNumber { get; set; }
         public string Website { get; set; }
-        public List<string> RestaurantTypes { get; set; }
+        public List<RestaurantTypeModel> RestaurantTypes { get; set; }
     }
 }

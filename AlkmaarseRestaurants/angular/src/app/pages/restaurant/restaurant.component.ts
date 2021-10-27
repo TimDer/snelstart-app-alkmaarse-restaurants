@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RestaurantContactModal } from 'src/app/shared/models/Restaurant/RestaurantContactModal';
 import { RestaurantModel } from 'src/app/shared/models/Restaurant/RestaurantModel';
@@ -13,10 +13,13 @@ declare let $: any;
   templateUrl: './restaurant.component.html',
   styleUrls: ['./restaurant.component.scss']
 })
-export class RestaurantComponent implements OnInit {
+export class RestaurantComponent implements OnInit, AfterViewInit {
 
   public Restaurant: RestaurantModel = new RestaurantModel();
   public MessageSent: boolean = false;
+
+  @ViewChildren('bootstrapTooltipRestaurantType')
+  public bootstrapTooltipRestaurantType: QueryList<ElementRef<HTMLElement>> | null = null;
 
   public RestaurantContactForm: FormGroup = new FormGroup({
     name: new FormControl("", Validators.required),
@@ -46,6 +49,21 @@ export class RestaurantComponent implements OnInit {
         restaurantData.restaurantMenu = priceToMenu;
         this.Restaurant = restaurantData;
       });
+  }
+
+  ngAfterViewInit(): void {
+    if (this.bootstrapTooltipRestaurantType !== null) {
+      this.bootstrapTooltipRestaurantType.changes.subscribe((elements: QueryList<ElementRef<HTMLElement>>) => {
+        elements.toArray().forEach((element: ElementRef<HTMLElement>) => {
+          $(element.nativeElement).tooltip();
+        });
+      });
+    }
+  }
+
+  public bootstrapTooltipRestaurantTypeTitle(name: string, description: string): string {
+    return  "<p>" + name + "</p>" + 
+            "<div>" + description + "</div>";
   }
 
   public onRestaurantSubmit(data: RestaurantContactModal, rawData: any) {

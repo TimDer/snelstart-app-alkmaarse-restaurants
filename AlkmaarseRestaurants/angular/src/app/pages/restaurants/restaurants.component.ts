@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RestaurantModel } from 'src/app/shared/models/Restaurant/RestaurantModel';
-import { RestaurantTypeModel } from 'src/app/shared/models/Restaurant/RestaurantTypeModel';
+import { RestaurantCategoryModel } from 'src/app/shared/models/Restaurant/RestaurantCategoryModel';
 import { RestaurantApiService } from 'src/app/shared/services/apis/restaurant/restaurant-api.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { RestaurantApiService } from 'src/app/shared/services/apis/restaurant/re
 export class RestaurantsComponent implements OnInit {
 
   public Restaurants!: RestaurantModel[];
-  public RestaurantTypes!: RestaurantTypeModel[];
+  public RestaurantTypes!: RestaurantCategoryModel[];
   public RestaurantTypeSelected!: string;
   public RestaurantFilterSelected: boolean = false;
 

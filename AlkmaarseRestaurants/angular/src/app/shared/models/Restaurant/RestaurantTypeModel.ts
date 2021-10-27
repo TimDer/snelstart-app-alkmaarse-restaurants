@@ -1,13 +1,13 @@
-import { IRestaurantTypeModel } from "./iRestaurantTypeModel";
+import { IRestaurantTypeModel } from "./IRestaurantTypeModel";
 
 export class RestaurantTypeModel implements IRestaurantTypeModel {
-    public id: number;
     public name: string;
-    public displayName: string;
+    public description: string;
+    public cssClass: string;
 
     constructor() {
-        this.id = 0;
         this.name = "";
-        this.displayName = "";
+        this.description = "";
+        this.cssClass = "";
     }
 }

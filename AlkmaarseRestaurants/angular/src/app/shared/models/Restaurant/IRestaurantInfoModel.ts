@@ -1,7 +1,9 @@
+import { IRestaurantTypeModel } from "./IRestaurantTypeModel";
+
 export interface IRestaurantInfoModel {
     description: string
     phoneNumber: string
     mobilePhoneNumber: string
     website: string
-    restaurantTypes: Array<string>
+    restaurantTypes: Array<IRestaurantTypeModel>
 }

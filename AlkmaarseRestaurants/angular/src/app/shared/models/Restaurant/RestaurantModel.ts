@@ -1,7 +1,7 @@
 import { IRestaurantModel } from "./IRestaurantModel";
 import { RestaurantInfoModel } from "./RestaurantInfoModel";
 import { RestaurantMenuItemModel } from "./RestaurantMenuItemModel";
-import { RestaurantTypeModel } from "./RestaurantTypeModel";
+import { RestaurantCategoryModel } from "./RestaurantCategoryModel";
 
 export class RestaurantModel implements IRestaurantModel {
     public id: number;
@@ -11,7 +11,7 @@ export class RestaurantModel implements IRestaurantModel {
     public streetNumber: string;
     public postalCode: string;
     public imageLogo: string;
-    public restaurantType: RestaurantTypeModel;
+    public restaurantType: RestaurantCategoryModel;
     public restaurantInfo: RestaurantInfoModel;
     public restaurantMenu: Array<RestaurantMenuItemModel>;
 
@@ -23,7 +23,7 @@ export class RestaurantModel implements IRestaurantModel {
         this.streetNumber = "";
         this.postalCode = "";
         this.imageLogo = "";
-        this.restaurantType = new RestaurantTypeModel();
+        this.restaurantType = new RestaurantCategoryModel();
         this.restaurantInfo = new RestaurantInfoModel();
         this.restaurantMenu = [];
     }

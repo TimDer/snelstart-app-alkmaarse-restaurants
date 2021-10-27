@@ -1,5 +1,5 @@
 export interface IRestaurantTypeModel {
-    id: number
     name: string
-    displayName: string
+    description: string
+    cssClass: string
 }

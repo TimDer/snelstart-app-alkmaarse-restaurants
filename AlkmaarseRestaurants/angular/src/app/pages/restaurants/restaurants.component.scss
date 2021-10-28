@@ -8,7 +8,17 @@
 }
 
 .restaurant-rows {
+    .address-container {
+        display: flex;
 
+        .title {
+            flex: 0;
+            margin-right: 7px;
+        }
+        .content {
+            flex: 1;
+        }
+    }
 }
 
 .restaurant-filter {

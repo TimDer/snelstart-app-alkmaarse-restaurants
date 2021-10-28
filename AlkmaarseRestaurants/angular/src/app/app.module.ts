@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RestaurantLogoComponent } from './shared/components/restaurant-logo/restaurant-logo.component';
+import { RestaurantTypeTooltipComponent } from './shared/components/restaurant-type-tooltip/restaurant-type-tooltip.component';
+import { RestaurantIconTypeComponent } from './shared/components/restaurant-icon-type/restaurant-icon-type.component';
 
 const ngRoutes: Routes = [
   {
@@ -30,7 +32,9 @@ const ngRoutes: Routes = [
     FooterComponent,
     RestaurantsComponent,
     RestaurantComponent,
-    RestaurantLogoComponent
+    RestaurantLogoComponent,
+    RestaurantTypeTooltipComponent,
+    RestaurantIconTypeComponent
   ],
   imports: [
     BrowserModule,

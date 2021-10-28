@@ -13,13 +13,10 @@ declare let $: any;
   templateUrl: './restaurant.component.html',
   styleUrls: ['./restaurant.component.scss']
 })
-export class RestaurantComponent implements OnInit, AfterViewInit {
+export class RestaurantComponent implements OnInit {
 
   public Restaurant: RestaurantModel = new RestaurantModel();
   public MessageSent: boolean = false;
-
-  @ViewChildren('bootstrapTooltipRestaurantType')
-  public bootstrapTooltipRestaurantType: QueryList<ElementRef<HTMLElement>> | null = null;
 
   public RestaurantContactForm: FormGroup = new FormGroup({
     name: new FormControl("", Validators.required),
@@ -49,16 +46,6 @@ export class RestaurantComponent implements OnInit, AfterViewInit {
         restaurantData.restaurantMenu = priceToMenu;
         this.Restaurant = restaurantData;
       });
-  }
-
-  ngAfterViewInit(): void {
-    if (this.bootstrapTooltipRestaurantType !== null) {
-      this.bootstrapTooltipRestaurantType.changes.subscribe((elements: QueryList<ElementRef<HTMLElement>>) => {
-        elements.toArray().forEach((element: ElementRef<HTMLElement>) => {
-          $(element.nativeElement).tooltip();
-        });
-      });
-    }
   }
 
   public bootstrapTooltipRestaurantTypeTitle(name: string, description: string): string {

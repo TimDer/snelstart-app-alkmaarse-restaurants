@@ -44,9 +44,7 @@
                 <app-restaurant-logo [src]="Restaurant.imageLogo" [alt]="Restaurant.name"></app-restaurant-logo>
 
                 <div class="restaurant-speed-data margin-top-10px">
-                    <span *ngFor="let restaurantType of Restaurant.restaurantInfo.restaurantTypes" #bootstrapTooltipRestaurantType data-html="true" data-tooltip title="{{ bootstrapTooltipRestaurantTypeTitle(restaurantType.name, restaurantType.description) }}">
-                        <i class="{{ restaurantType.cssClass }}"></i>
-                    </span>
+                    <app-restaurant-type-tooltip [restaurantTypes]="Restaurant.restaurantInfo.restaurantTypes"></app-restaurant-type-tooltip>
                     <hr class="custom-hr">
                     <span class="small-text">
                         <p><i class="fas fa-home"></i>: {{ Restaurant.streetName }} {{ Restaurant.streetNumber }}</p>

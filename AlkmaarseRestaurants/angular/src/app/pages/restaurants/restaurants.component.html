@@ -20,17 +20,13 @@
                                 {{ Restaurant.name }}
                             </a>
                         </h1>
-                        <div class="row">
-                            <div class="col">
-                                <ul>
-                                    <li>Adres: {{ Restaurant.address }}</li>
-                                    <li>Straat naam: {{ Restaurant.streetName }} {{ Restaurant.streetNumber }}</li>
-                                </ul>
-                            </div>
-                            <div class="col">
-                                <ul>
-                                    <li>Restaurant type: {{ Restaurant.restaurantType.displayName }}</li>
-                                </ul>
+                        <app-restaurant-type-tooltip [restaurantTypes]="Restaurant.restaurantInfo.restaurantTypes"></app-restaurant-type-tooltip>
+                        <div class="address-container">
+                            <div class="title">Adres:</div>
+                            <div class="content">
+                                {{ Restaurant.streetName }} {{ Restaurant.streetNumber }}
+                                <br>
+                                {{ Restaurant.postalCode }} {{ Restaurant.address }}
                             </div>
                         </div>
                     </div>

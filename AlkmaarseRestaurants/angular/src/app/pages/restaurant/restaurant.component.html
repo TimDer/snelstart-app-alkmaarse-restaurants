@@ -22,7 +22,7 @@
                                 <tr>
                                     <td>{{ menuItem.name }}</td>
                                     <td>{{ menuItem.description }}</td>
-                                    <td>€{{ menuItem.price }}</td>
+                                    <td>€{{ menuItem.price | restaurantPrice }}</td>
                                 </tr>
                             </ng-container>
                         </tbody>

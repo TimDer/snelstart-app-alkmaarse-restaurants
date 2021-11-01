@@ -19,7 +19,7 @@ export class RestaurantApiService {
     this.http.get<RestaurantCategoryModel[]>("/api/restaurant/GetRestaurantTypes").subscribe(subscribeToApi);
   }
 
-  public getOwnRestaurant(id: string, subscribeToApi: (restaurant: RestaurantModel) => void): void {
-    this.http.get<RestaurantModel>(`/api/restaurant/SelectById/${id}`).subscribe(subscribeToApi);
+  public getOwnRestaurant(id: string): Observable<RestaurantModel> {
+    return this.http.get<RestaurantModel>(`/api/restaurant/SelectById/${id}`);
   }
 }

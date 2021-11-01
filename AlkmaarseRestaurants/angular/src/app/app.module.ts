@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RestaurantLogoComponent } from './shared/components/restaurant-logo/restaurant-logo.component';
 import { RestaurantTypeTooltipComponent } from './shared/components/restaurant-type-tooltip/restaurant-type-tooltip.component';
 import { RestaurantIconTypeComponent } from './shared/components/restaurant-icon-type/restaurant-icon-type.component';
+import { RestaurantPricePipe } from './shared/pipes/restaurantPrice/restaurant-price.pipe';
 
 const ngRoutes: Routes = [
   {
@@ -34,7 +35,8 @@ const ngRoutes: Routes = [
     RestaurantComponent,
     RestaurantLogoComponent,
     RestaurantTypeTooltipComponent,
-    RestaurantIconTypeComponent
+    RestaurantIconTypeComponent,
+    RestaurantPricePipe
   ],
   imports: [
     BrowserModule,

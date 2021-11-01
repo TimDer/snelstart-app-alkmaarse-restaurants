@@ -31,21 +31,9 @@ export class RestaurantComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.restaurantApiService.getOwnRestaurant(
-      this.route.snapshot.paramMap.get("id") || "",
-      (restaurantData: RestaurantModel) => {
-        // Looping through the menu in order to trigger the price setter
-        let priceToMenu: Array<RestaurantMenuItemModel> = [];
-        restaurantData.restaurantMenu.forEach((value, key) => {
-          const newArray: RestaurantMenuItemModel = new RestaurantMenuItemModel();
-          newArray.price = value.price;
-          newArray.name = value.name;
-          newArray.description = value.description;
-          priceToMenu[key] = newArray;
-        });
-        restaurantData.restaurantMenu = priceToMenu;
-        this.Restaurant = restaurantData;
-      });
+    this.restaurantApiService.getOwnRestaurant(this.route.snapshot.paramMap.get("id") || "").subscribe(data => {
+      this.Restaurant = data;
+    });
   }
 
   public bootstrapTooltipRestaurantTypeTitle(name: string, description: string): string {

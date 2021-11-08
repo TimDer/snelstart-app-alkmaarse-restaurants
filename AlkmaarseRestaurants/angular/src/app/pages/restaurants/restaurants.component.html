@@ -1,4 +1,4 @@
-<div class="padding-10px">
+<div class="padding-10">
     <ng-container *ngTemplateOutlet="restaurantFilter"></ng-container>
 
     <ng-container *ngTemplateOutlet="restaurantLayout"></ng-container>
@@ -39,7 +39,7 @@
 <ng-template #restaurantFilter>
     <div class="btn-group">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="collapse" data-target="#restaurant-filter-selecter">Filteren</button>
-        <div class="dropdown-menu padding-8px restaurant-filter" id="restaurant-filter-selecter">
+        <div class="dropdown-menu padding-8 restaurant-filter" id="restaurant-filter-selecter">
             <form #restaurantFilter>
                 <p>
                     <input  type="checkbox"
@@ -48,7 +48,7 @@
                             (change)="onFilterChange($event)">Gebruik filter
                 </p>
 
-                <p class="margin-0px">Restaurant type:</p>
+                <p class="margin-0">Restaurant type:</p>
                 <select name="restaurantType" class="form-control" [(ngModel)]="RestaurantTypeSelected">
                     <option [value]="restaurant.name" *ngFor="let restaurant of RestaurantTypes">{{ restaurant.displayName }}</option>
                 </select>

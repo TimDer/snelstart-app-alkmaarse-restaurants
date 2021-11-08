@@ -44,10 +44,10 @@
             </section>
         </div>
         <aside class="col-md-3 restaurant-sidebar-area">
-            <div class="aside-box scrollbar-md-up padding-right-0px padding-md-down-left-0px">
+            <div class="aside-box scrollbar-md-up padding-right-0 padding-md-down-left-0">
                 <app-restaurant-logo [src]="Restaurant.imageLogo" [alt]="Restaurant.name"></app-restaurant-logo>
 
-                <div class="restaurant-speed-data margin-top-10px">
+                <div class="restaurant-speed-data margin-top-10">
                     <app-restaurant-type-tooltip [restaurantTypes]="Restaurant.restaurantInfo.restaurantTypes"></app-restaurant-type-tooltip>
                     <hr class="custom-hr">
                     <span class="small-text">
@@ -62,7 +62,7 @@
                         <button class="btn btn-primary btn-block" type="button" data-toggle="modal" data-target="#restaurantContactModal">
                             Contact
                         </button>
-                        <div class="alert alert-success margin-top-8px" *ngIf="MessageSent">
+                        <div class="alert alert-success margin-top-8" *ngIf="MessageSent">
                             Je hebt een bericht verzonden
                         </div>
                     </span>
@@ -80,8 +80,8 @@
         <div class="filter">
             <div class="btn-group">
                 <button class="btn btn-primary dropdown-toggle" (click)="bootstrapRestaurantMenuFilter(restaurantMenuFilterDropdown)">Meer</button>
-                <div class="dropdown-menu dropdown-menu-custom padding-8px" #restaurantMenuFilterDropdown>
-                    <p class="margin-0px">Prijs:</p>
+                <div class="dropdown-menu dropdown-menu-custom padding-8" #restaurantMenuFilterDropdown>
+                    <p class="margin-0">Prijs:</p>
                     <input type="number" class="form-control" #restaurantMenuFilterPrice (keyup)="menuFilterOnChange(restaurantMenuFilterName.value, strToNumber(restaurantMenuFilterPrice.value), restaurantMenuFilterCat.value)">
                     
                     <p>Category:</p>
@@ -104,22 +104,22 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body padding-top-6px">
+                <div class="modal-body padding-top-6">
                     <ng-container *ngIf="!MessageSent">
-                        <p class="margin-0px">Naam:</p>
+                        <p class="margin-0">Naam:</p>
                         <input name="name" type="text" class="form-control" ngModel formControlName="name">
     
-                        <p class="margin-0px">Onderwerp:</p>
+                        <p class="margin-0">Onderwerp:</p>
                         <input name="subject" type="text" class="form-control" ngModel formControlName="subject">
     
-                        <p class="margin-0px">Jouw e-mail:</p>
+                        <p class="margin-0">Jouw e-mail:</p>
                         <input name="email" type="email" class="form-control" ngModel formControlName="email">
     
-                        <p class="margin-0px">Bericht:</p>
+                        <p class="margin-0">Bericht:</p>
                         <textarea name="message" rows="8" class="form-control" ngModel formControlName="message"></textarea>
                     </ng-container>
                     <ng-container *ngIf="MessageSent">
-                        <p class="margin-0px padding-top-4px">Je hebt al een bericht verzonden naar dit restaurant</p>
+                        <p class="margin-0 padding-top-4">Je hebt al een bericht verzonden naar dit restaurant</p>
                     </ng-container>
                 </div>
                 <div class="modal-footer">

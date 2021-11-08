@@ -99,7 +99,7 @@ export class RestaurantComponent implements OnInit {
   }
 
   public bootstrapTooltipRestaurantTypeTitle(name: string, description: string): string {
-    return  "<p class='margin-bottom-5px'>" + name + "</p>" + 
+    return  "<p class='margin-bottom-5'>" + name + "</p>" + 
             "<div>" + description + "</div>";
   }
 

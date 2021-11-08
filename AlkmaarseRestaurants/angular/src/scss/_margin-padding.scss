@@ -14,35 +14,35 @@ $breakpoints-sizes: (
 // setup
 @mixin _margin-default-style($value, $type: "") {
     .margin#{$type}-#{$value} {
-        margin#{$type}: #{$value} !important;
+        margin#{$type}: #{$value}px !important;
     }
 }
 @mixin _padding-default-style($value, $type: "") {
     .padding#{$type}-#{$value} {
-        padding#{$type}: #{$value} !important;
+        padding#{$type}: #{$value}px !important;
     }
 }
 @mixin _margin-style($value, $type: "", $breakpoint) {
     @media (min-width: #{map.get($breakpoints-sizes, $breakpoint)}) {
         .margin-#{$breakpoint}-up#{$type}-#{$value} {
-            margin#{$type}: #{$value} !important;
+            margin#{$type}: #{$value}px !important;
         }
     }
     @media (max-width: #{map.get($breakpoints-sizes, $breakpoint) - 0.02px}) {
         .margin-#{$breakpoint}-down#{$type}-#{$value} {
-            margin#{$type}: #{$value} !important;
+            margin#{$type}: #{$value}px !important;
         }
     }
 }
 @mixin _padding-style($value, $type: "", $breakpoint) {
     @media (min-width: #{map.get($breakpoints-sizes, $breakpoint)}) {
         .padding-#{$breakpoint}-up#{$type}-#{$value} {
-            padding#{$type}: #{$value} !important;
+            padding#{$type}: #{$value}px !important;
         }
     }
     @media (max-width: #{map.get($breakpoints-sizes, $breakpoint) - 0.02px}) {
         .padding-#{$breakpoint}-down#{$type}-#{$value} {
-            padding#{$type}: #{$value} !important;
+            padding#{$type}: #{$value}px !important;
         }
     }
 }
@@ -78,12 +78,12 @@ $breakpoints-sizes: (
 @mixin _choose($value, $margin-or-padding, $default, $breakpoint: "") {
     @each $type in $margin-padding-types {
         @if ($default) {
-            @include _margin-padding-defualt-style($value + "px",
+            @include _margin-padding-defualt-style($value,
                                                     $type,
                                                     $margin-or-padding);
         }
         @else {
-            @include _margin-padding-style($value + "px",
+            @include _margin-padding-style($value,
                                             $type,
                                             $margin-or-padding,
                                             $breakpoint);

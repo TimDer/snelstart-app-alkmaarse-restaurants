@@ -3,6 +3,44 @@
 
 @import "/node_modules/bootstrap/scss/tables";
 @import "/node_modules/bootstrap/scss/alert";
+@import "/node_modules/bootstrap/scss/dropdown";
+
+@mixin restaurant-menu-filter {
+    .restaurant-menu-filter {
+        padding: 7px;
+        background-color: #BFBFBF;
+        margin-bottom: 5px;
+        display: flex;
+
+        .search-bar {
+            flex: 1;
+
+            input {
+                width: 200px;
+
+                @include media-breakpoint-down(sm) {
+                    width: 130px;
+                }
+            }
+        }
+
+        .filter {
+            flex: 0;
+
+            .dropdown-menu-custom {
+                top: auto !important;
+                left: auto !important;
+                width: 218px;
+                transform: translate3d(-142px, 39px, 0px) !important;
+
+                @include media-breakpoint-up(sm) {
+                    width: 400px;
+                    transform: translate3d(-323px, 39px, 0px) !important;
+                }
+            }
+        }
+    }
+}
 
 .container, .row {
     height: 100%;
@@ -37,6 +75,8 @@
             background-color: #F2F2F2;
             padding: 10px;
             border-radius: 5px;
+
+            @include restaurant-menu-filter();
 
             .restaurant-menu-table {
                 @media screen and (max-width: 460px) {

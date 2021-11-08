@@ -1,12 +1,24 @@
-import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RestaurantContactModal } from 'src/app/shared/models/Restaurant/RestaurantContactModal';
 import { RestaurantModel } from 'src/app/shared/models/Restaurant/RestaurantModel';
 import { RestaurantApiService } from 'src/app/shared/services/apis/restaurant/restaurant-api.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { RestaurantMenuItemModel } from 'src/app/shared/models/Restaurant/RestaurantMenuItemModel';
+import { RestaurantMenuItemCategoryModel } from 'src/app/shared/models/Restaurant/RestaurantMenuItemCategoryModel';
 
 declare let $: any;
+
+class ReadonlyRawRestaurantData {
+  public readonly RestaurantData: RestaurantModel = new RestaurantModel();
+
+  public getRestaurantData(): RestaurantModel {
+    return this.RestaurantData;
+  }
+
+  constructor(setRestaurant: RestaurantModel) {
+    this.RestaurantData = setRestaurant;
+  }
+}
 
 @Component({
   selector: 'app-restaurant',
@@ -15,7 +27,9 @@ declare let $: any;
 })
 export class RestaurantComponent implements OnInit {
 
+  public RawRestaurant: ReadonlyRawRestaurantData = new ReadonlyRawRestaurantData(new RestaurantModel());
   public Restaurant: RestaurantModel = new RestaurantModel();
+  public RestaurantMenuItemCategories: Array<RestaurantMenuItemCategoryModel> = [];
   public MessageSent: boolean = false;
 
   public RestaurantContactForm: FormGroup = new FormGroup({
@@ -32,7 +46,55 @@ export class RestaurantComponent implements OnInit {
 
   ngOnInit(): void {
     this.restaurantApiService.getOwnRestaurant(this.route.snapshot.paramMap.get("id") || "").subscribe(data => {
-      this.Restaurant = data;
+      this.RawRestaurant = new ReadonlyRawRestaurantData(this.deepCopy<RestaurantModel>(data));
+      this.Restaurant = this.deepCopy<RestaurantModel>(data);
+    });
+
+    this.restaurantApiService.GetRestaurantMenuCategories().subscribe(data => {
+      const AddAllCategory = new RestaurantMenuItemCategoryModel();
+      AddAllCategory.name = "all";
+      AddAllCategory.displayName = "Alles";
+      data.unshift(AddAllCategory);
+      this.RestaurantMenuItemCategories = data;
+    });
+  }
+
+  public deepCopy<T>(object: T): T {
+    return JSON.parse(JSON.stringify(object));
+  }
+
+  public bootstrapRestaurantMenuFilter(element: HTMLElement): void {
+    if (element.matches(".show")) {
+      element.classList.remove("show");
+    }
+    else {
+      $(element).dropdown("toggle");
+    }
+  }
+
+  public strToNumber(num: string): number {
+    return Number(num);
+  }
+
+  public menuFilterOnChange(name: string, price: number, cat: string): void {
+    this.Restaurant.restaurantMenu = this.RawRestaurant.getRestaurantData().restaurantMenu.filter(filter => {
+      let allowName: boolean  = true;
+      let allowPrice: boolean = true;
+      let allowCat: boolean   = true;
+
+      if (name !== "" && !filter.name.toLowerCase().includes(name.toLowerCase())) {
+        allowName = false;
+      }
+
+      if (price.toString() !== "0" && (price < filter.price)) {
+        allowPrice = false;
+      }
+
+      if (cat !== filter.menuCategory.name && cat !== "all") {
+        allowCat = false;
+      }
+
+      return allowName && allowPrice && allowCat;
     });
   }
 

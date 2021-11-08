@@ -1,5 +1,8 @@
+import { RestaurantMenuItemCategoryModel } from "./RestaurantMenuItemCategoryModel";
+
 export interface IRestaurantMenuItemModel {
     name: string
     description: string
-    price: string
+    price: number
+    menuCategory: RestaurantMenuItemCategoryModel
 }

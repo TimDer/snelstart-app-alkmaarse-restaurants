@@ -10,6 +10,7 @@ namespace AlkmaarseRestaurants.DummyData
         public RestaurantsDummyData()
         {
             var restaurantTypes = new RestaurantCategoryDummyData();
+            var menuItemData = new RestaurantMenuItemCategoryData();
 
             Restaurants = new List<RestaurantModel> {
                 new RestaurantModel
@@ -44,19 +45,22 @@ namespace AlkmaarseRestaurants.DummyData
                         {
                             Name = "Croissant",
                             Description = "roomboter | jam",
-                            Price = 3.50m
+                            Price = 3.50m,
+                            MenuCategory = menuItemData.RestaurantMenuItemCategories[1]
                         },
                         new RestaurantMenuItemModel
                         {
                             Name = "Croissant",
                             Description = "Beemsterkaas",
-                            Price = 3.50m
+                            Price = 3.50m,
+                            MenuCategory = menuItemData.RestaurantMenuItemCategories[1]
                         },
                         new RestaurantMenuItemModel
                         {
                             Name = "Acaï bowl",
                             Description = "granola | banaan | kiwi",
-                            Price = 6.40m
+                            Price = 6.40m,
+                            MenuCategory = menuItemData.RestaurantMenuItemCategories[2]
                         },
                     }
                 },

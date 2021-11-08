@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RestaurantModel } from 'src/app/shared/models/Restaurant/RestaurantModel';
 import { RestaurantCategoryModel } from 'src/app/shared/models/Restaurant/RestaurantCategoryModel';
+import { RestaurantMenuItemCategoryModel } from 'src/app/shared/models/Restaurant/RestaurantMenuItemCategoryModel';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,9 @@ export class RestaurantApiService {
 
   public getOwnRestaurant(id: string): Observable<RestaurantModel> {
     return this.http.get<RestaurantModel>(`/api/restaurant/SelectById/${id}`);
+  }
+
+  public GetRestaurantMenuCategories(): Observable<Array<RestaurantMenuItemCategoryModel>> {
+    return this.http.get<Array<RestaurantMenuItemCategoryModel>>("/api/restaurant/GetRestaurantMenuCategories");
   }
 }

@@ -9,12 +9,14 @@
             <section class="restaurant-menu">
                 <h1>De menukaart van "{{ Restaurant.name }}"</h1>
                 <div class="restaurant-menu-list">
+                    <ng-container *ngTemplateOutlet="restaurantMenuFilter"></ng-container>
                     <table class="table restaurant-menu-table">
                         <thead>
                             <tr>
                                 <th>Naam</th>
                                 <th>Beschrijving</th>
                                 <th>Prijs</th>
+                                <th>Categorie</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -22,7 +24,8 @@
                                 <tr>
                                     <td>{{ menuItem.name }}</td>
                                     <td>{{ menuItem.description }}</td>
-                                    <td>€{{ menuItem.price | restaurantPrice }}</td>
+                                    <td>{{ menuItem.price.toString() | restaurantPrice }}</td>
+                                    <td>{{ menuItem.menuCategory.displayName }}</td>
                                 </tr>
                             </ng-container>
                         </tbody>
@@ -32,7 +35,8 @@
                             <ul>
                                 <li>{{ menuItem.name }}</li>
                                 <li>{{ menuItem.description }}</li>
-                                <li>€{{ menuItem.price }}</li>
+                                <li>{{ menuItem.price.toString() | restaurantPrice }}</li>
+                                <li>{{ menuItem.menuCategory.displayName }}</li>
                             </ul>
                         </ng-container>
                     </div>
@@ -68,6 +72,27 @@
     </div>
 </div>
 
+<ng-template #restaurantMenuFilter>
+    <div class="restaurant-menu-filter">
+        <div class="search-bar">
+            <input type="text" class="form-control" placeholder="Naam" #restaurantMenuFilterName (keyup)="menuFilterOnChange(restaurantMenuFilterName.value, strToNumber(restaurantMenuFilterPrice.value), restaurantMenuFilterCat.value)">
+        </div>
+        <div class="filter">
+            <div class="btn-group">
+                <button class="btn btn-primary dropdown-toggle" (click)="bootstrapRestaurantMenuFilter(restaurantMenuFilterDropdown)">Meer</button>
+                <div class="dropdown-menu dropdown-menu-custom padding-8px" #restaurantMenuFilterDropdown>
+                    <p class="margin-0px">Prijs:</p>
+                    <input type="number" class="form-control" #restaurantMenuFilterPrice (keyup)="menuFilterOnChange(restaurantMenuFilterName.value, strToNumber(restaurantMenuFilterPrice.value), restaurantMenuFilterCat.value)">
+                    
+                    <p>Category:</p>
+                    <select class="form-control" #restaurantMenuFilterCat (change)="menuFilterOnChange(restaurantMenuFilterName.value, strToNumber(restaurantMenuFilterPrice.value), restaurantMenuFilterCat.value)">
+                        <option [value]="menuCategory.name" *ngFor="let menuCategory of RestaurantMenuItemCategories">{{ menuCategory.displayName }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
 
 <form #restaurantContect="ngForm" (ngSubmit)="onRestaurantSubmit(restaurantContect.value, restaurantContect)" [formGroup]="RestaurantContactForm">
     <div class="modal fade" id="restaurantContactModal" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

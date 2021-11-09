@@ -84,7 +84,7 @@
                     <p class="margin-0">Prijs:</p>
                     <input type="number" class="form-control" #restaurantMenuFilterPrice (keyup)="menuFilterOnChange(restaurantMenuFilterName.value, strToNumber(restaurantMenuFilterPrice.value), restaurantMenuFilterCat.value)">
                     
-                    <p>Category:</p>
+                    <p class="margin-0 margin-top-6">Category:</p>
                     <select class="form-control" #restaurantMenuFilterCat (change)="menuFilterOnChange(restaurantMenuFilterName.value, strToNumber(restaurantMenuFilterPrice.value), restaurantMenuFilterCat.value)">
                         <option [value]="menuCategory.name" *ngFor="let menuCategory of RestaurantMenuItemCategories">{{ menuCategory.displayName }}</option>
                     </select>

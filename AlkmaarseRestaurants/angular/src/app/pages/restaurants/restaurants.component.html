@@ -29,6 +29,14 @@
                                 {{ Restaurant.postalCode }} {{ Restaurant.address }}
                             </div>
                         </div>
+                        
+                        <i  class="fas fa-heart hover-heart"
+                            *ngIf="RestaurantFavouritesService.IsInFavourites(Restaurant.id)"
+                            (click)="RestaurantFavouritesService.removeFavourite(Restaurant.id)"></i>
+                        
+                        <i  class="far fa-heart hover-heart"
+                            *ngIf="!RestaurantFavouritesService.IsInFavourites(Restaurant.id)"
+                            (click)="RestaurantFavouritesService.AddFavourite(Restaurant.id)"></i>
                     </div>
                 </div>
             </div>

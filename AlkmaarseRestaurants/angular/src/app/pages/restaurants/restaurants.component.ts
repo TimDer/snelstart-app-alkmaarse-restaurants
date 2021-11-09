@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestaurantModel } from 'src/app/shared/models/Restaurant/RestaurantModel';
 import { RestaurantCategoryModel } from 'src/app/shared/models/Restaurant/RestaurantCategoryModel';
 import { RestaurantApiService } from 'src/app/shared/services/apis/restaurant/restaurant-api.service';
+import { RestaurantFavoritesService } from 'src/app/shared/services/restaurant-favorites/restaurant-favorites.service';
 
 @Component({
   selector: 'app-restaurants',
@@ -17,7 +18,8 @@ export class RestaurantsComponent implements OnInit {
   public RestaurantFilterSelected: boolean = false;
 
   constructor(
-    private restaurantApiService: RestaurantApiService
+    private restaurantApiService: RestaurantApiService,
+    public RestaurantFavouritesService: RestaurantFavoritesService
   ) { }
 
   ngOnInit(): void {

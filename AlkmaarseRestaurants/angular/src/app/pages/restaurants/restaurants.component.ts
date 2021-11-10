@@ -15,6 +15,7 @@ export class RestaurantsComponent implements OnInit {
   public Restaurants!: RestaurantModel[];
   public RestaurantTypes!: RestaurantCategoryModel[];
   public RestaurantTypeSelected!: string;
+  public RestaurantFavoritesSelected: boolean = false;
   public RestaurantFilterSelected: boolean = false;
 
   constructor(
@@ -37,7 +38,30 @@ export class RestaurantsComponent implements OnInit {
         );
   }
 
-  public onFilterChange(event: any) {
-    this.RestaurantFilterSelected = event.target.checked;
+  public applyFilter(Restaurant: RestaurantModel): boolean {
+    const checkType = Restaurant.restaurantType.name == this.RestaurantTypeSelected;
+    //let checkFavorites = this.RestaurantFavoritesSelected;
+    let checkFavorites = false;
+    const checkAllowFilter = !this.RestaurantFilterSelected;
+
+    if (this.RestaurantFavouritesService.IsInFavourites(Restaurant.id) && this.RestaurantFavoritesSelected === true) {
+      checkFavorites = true;
+    }
+
+    console.log(
+      "checkType", checkType,
+      "checkFavorites", checkFavorites,
+      "checkAllowFilter", checkAllowFilter
+    );
+
+    return (checkType || checkFavorites) || checkAllowFilter;
+  }
+
+  public allowTheUseOfTheFilter(event: any) {
+      this.RestaurantFilterSelected = event.target.checked;
+  }
+
+  public useFavoritesFilter(event: any) {
+    this.RestaurantFavoritesSelected = event.target.checked;
   }
 }

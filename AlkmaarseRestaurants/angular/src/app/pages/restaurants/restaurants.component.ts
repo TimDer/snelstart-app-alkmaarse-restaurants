@@ -40,19 +40,12 @@ export class RestaurantsComponent implements OnInit {
 
   public applyFilter(Restaurant: RestaurantModel): boolean {
     const checkType = Restaurant.restaurantType.name == this.RestaurantTypeSelected;
-    //let checkFavorites = this.RestaurantFavoritesSelected;
     let checkFavorites = false;
     const checkAllowFilter = !this.RestaurantFilterSelected;
 
     if (this.RestaurantFavouritesService.IsInFavourites(Restaurant.id) && this.RestaurantFavoritesSelected === true) {
       checkFavorites = true;
     }
-
-    console.log(
-      "checkType", checkType,
-      "checkFavorites", checkFavorites,
-      "checkAllowFilter", checkAllowFilter
-    );
 
     return (checkType || checkFavorites) || checkAllowFilter;
   }

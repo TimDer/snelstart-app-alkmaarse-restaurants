@@ -1,0 +1,31 @@
+<div class="main-container padding-10">
+    <h1>Winkelwagen</h1>
+    <p>Welkom bij de winkelwagen van Alkmaarse restaurants</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Aantal</th>
+                <th>Prijs</th>
+                <th><span class="bootstrap-sm-down-hide">Wijzigen</span></th>
+                <th class="bin-product bootstrap-sm-down-hide">Verwijderen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cart of cartService.cart?.cartItems">
+                <td class="max-content">{{ getCartItemFromMenu(cartService.cart, cart.productByName).name }}</td>
+                <td>{{ cart.amount }}</td>
+                <td>{{ (cart.amount * getCartItemFromMenu(cartService.cart, cart.productByName).price).toString() | restaurantPrice }}   </td>
+                <td class="btn-spacing">
+                    <button class="btn btn-primary margin-5" (click)="cartService.addProductToCart(cart.productByName, cartService.cart?.restaurant)"><i class="fas fa-plus"></i></button>
+                    <button class="btn btn-primary margin-5" (click)="cartService.removeProductFromCart(cart.productByName, 'one')"><i class="fas fa-minus"></i></button>
+                    <button class="btn btn-danger margin-5 bootstrap-sm-up-hide" (click)="cartService.removeProductFromCart(cart.productByName, 'all')"><i class="fas fa-trash"></i></button>
+                </td>
+                <td class="bin-product bootstrap-sm-down-hide">
+                    <button class="btn btn-danger bin-btn" (click)="cartService.removeProductFromCart(cart.productByName, 'all')"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

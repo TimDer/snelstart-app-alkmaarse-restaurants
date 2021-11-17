@@ -17,6 +17,7 @@
                                 <th>Beschrijving</th>
                                 <th>Prijs</th>
                                 <th>Categorie</th>
+                                <th>Bestellen</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,6 +27,7 @@
                                     <td>{{ menuItem.description }}</td>
                                     <td>{{ menuItem.price.toString() | restaurantPrice }}</td>
                                     <td>{{ menuItem.menuCategory.displayName }}</td>
+                                    <td><button class="btn btn-primary restaurant-menu-add-to-cart-btn-onclick" (click)="cartService.addProductToCart(menuItem.id, Restaurant)"><i class="fas fa-shopping-cart"></i></button></td>
                                 </tr>
                             </ng-container>
                         </tbody>
@@ -37,6 +39,7 @@
                                 <li>{{ menuItem.description }}</li>
                                 <li>{{ menuItem.price.toString() | restaurantPrice }}</li>
                                 <li>{{ menuItem.menuCategory.displayName }}</li>
+                                <li><button class="btn btn-primary restaurant-menu-add-to-cart-btn-onclick" (click)="cartService.addProductToCart(menuItem.id, Restaurant)"><i class="fas fa-shopping-cart"></i></button></li>
                             </ul>
                         </ng-container>
                     </div>

@@ -1,0 +1,32 @@
+@use "sass:map";
+@import "/src/scss/bootstrap/bootstrap-start.scss";
+
+@import "/node_modules/bootstrap/scss/tables";
+
+
+.bin-product {
+    width: 50px;
+
+    .bin-btn {
+        float: right;
+    }
+}
+
+.max-content {
+    max-width: 70px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+@media (max-width: #{map.get($grid-breakpoints, "sm") - 0.02}) {
+    .bootstrap-sm-down-hide {
+        display: none;
+    }
+}
+
+@media (min-width: #{map.get($grid-breakpoints, "sm")}) {
+    .bootstrap-sm-up-hide {
+        display: none;
+    }
+}

@@ -76,6 +76,10 @@
             padding: 10px;
             border-radius: 5px;
 
+            .restaurant-menu-add-to-cart-btn-onclick:active {
+                background-color: green;
+            }
+
             @include restaurant-menu-filter();
 
             .restaurant-menu-table {

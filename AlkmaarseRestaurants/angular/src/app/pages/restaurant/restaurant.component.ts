@@ -5,6 +5,7 @@ import { RestaurantModel } from 'src/app/shared/models/Restaurant/RestaurantMode
 import { RestaurantApiService } from 'src/app/shared/services/apis/restaurant/restaurant-api.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RestaurantMenuItemCategoryModel } from 'src/app/shared/models/Restaurant/RestaurantMenuItemCategoryModel';
+import { CartService } from 'src/app/shared/services/cart/cart.service';
 
 declare let $: any;
 
@@ -41,7 +42,8 @@ export class RestaurantComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private restaurantApiService: RestaurantApiService
+    private restaurantApiService: RestaurantApiService,
+    public cartService: CartService
   ) { }
 
   ngOnInit(): void {

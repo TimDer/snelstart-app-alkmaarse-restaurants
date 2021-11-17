@@ -6,3 +6,13 @@
 @import "/node_modules/bootstrap/scss/nav";
 @import "/node_modules/bootstrap/scss/navbar";
 @import "/node_modules/bootstrap/scss/utilities";
+
+
+.cart-link {
+    color: rgba(255, 255, 255, 0.5) !important;
+
+    &:hover {
+        color: #CCCECF !important;
+        text-decoration: none;
+    }
+}

@@ -43,6 +43,7 @@ namespace AlkmaarseRestaurants.DummyData
                     {
                         new RestaurantMenuItemModel
                         {
+                            Id = 0,
                             Name = "Croissant",
                             Description = "roomboter | jam",
                             Price = 3.50m,
@@ -50,6 +51,7 @@ namespace AlkmaarseRestaurants.DummyData
                         },
                         new RestaurantMenuItemModel
                         {
+                            Id = 1,
                             Name = "Croissant",
                             Description = "Beemsterkaas",
                             Price = 3.50m,
@@ -57,6 +59,7 @@ namespace AlkmaarseRestaurants.DummyData
                         },
                         new RestaurantMenuItemModel
                         {
+                            Id = 2,
                             Name = "Acaï bowl",
                             Description = "granola | banaan | kiwi",
                             Price = 6.40m,
@@ -94,18 +97,21 @@ namespace AlkmaarseRestaurants.DummyData
                     {
                         new RestaurantMenuItemModel
                         {
+                            Id = 0,
                             Name = "Croissant",
                             Description = "Met boter en een bramenjam met steranijs",
                             Price = 3.75m
                         },
                         new RestaurantMenuItemModel
                         {
+                            Id = 1,
                             Name = "Hangop",
                             Description = "Met granola en vers fruit",
                             Price = 7.50m
                         },
                         new RestaurantMenuItemModel
                         {
+                            Id = 2,
                             Name = "Kalfskroketten",
                             Description = "Met brood en mosterd",
                             Price = 9.50m
@@ -142,18 +148,21 @@ namespace AlkmaarseRestaurants.DummyData
                     {
                         new RestaurantMenuItemModel
                         {
+                            Id = 0,
                             Name = "Gerookte zalm",
                             Description = "Met saffraanmayonaise, bosui en rucola",
                             Price = 7.00m
                         },
                         new RestaurantMenuItemModel
                         {
+                            Id = 1,
                             Name = "Geitenkaas",
                             Description = "Met honing, gekaramelliseerde pecannoten en rucola",
                             Price = 6.00m
                         },
                         new RestaurantMenuItemModel
                         {
+                            Id = 2,
                             Name = "Rundvleeskroketten",
                             Description = "2 ambachtelijke rundvleeskroketten",
                             Price = 6.00m

@@ -14,6 +14,7 @@ import { RestaurantLogoComponent } from './shared/components/restaurant-logo/res
 import { RestaurantTypeTooltipComponent } from './shared/components/restaurant-type-tooltip/restaurant-type-tooltip.component';
 import { RestaurantIconTypeComponent } from './shared/components/restaurant-icon-type/restaurant-icon-type.component';
 import { RestaurantPricePipe } from './shared/pipes/restaurantPrice/restaurant-price.pipe';
+import { CartComponent } from './pages/cart/cart.component';
 
 const ngRoutes: Routes = [
   {
@@ -23,6 +24,10 @@ const ngRoutes: Routes = [
   {
     path: "restaurant/:id",
     component: RestaurantComponent
+  },
+  {
+    path: "cart",
+    component: CartComponent
   }
 ];
 
@@ -36,7 +41,8 @@ const ngRoutes: Routes = [
     RestaurantLogoComponent,
     RestaurantTypeTooltipComponent,
     RestaurantIconTypeComponent,
-    RestaurantPricePipe
+    RestaurantPricePipe,
+    CartComponent
   ],
   imports: [
     BrowserModule,

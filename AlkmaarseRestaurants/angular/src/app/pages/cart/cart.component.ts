@@ -18,10 +18,6 @@ export class CartComponent implements OnInit {
     return cart?.restaurant.restaurantMenu.find(filter => filter.id === menuItemId)!;
   }
   
-  mylog(...value: any) {
-    console.log(...value);
-  }
-
   ngOnInit(): void {
   }
 

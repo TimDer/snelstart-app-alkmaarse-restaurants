@@ -31,7 +31,7 @@ export class CartService {
   public addProductToCart(productByKeyName: number, restaurant: RestaurantModel | undefined) {
     const cartItem  = new CartItemModel();
     cartItem.amount = 1;
-    cartItem.productByName = productByKeyName;
+    cartItem.productById = productByKeyName;
 
     const currentLocalStorage: CartModel | null = this.cart;
 
@@ -42,8 +42,8 @@ export class CartService {
         product.restaurant = restaurant;
         this.cart = product;
       }
-      else if (currentLocalStorage.cartItems.find(f => f.productByName === productByKeyName) !== undefined && restaurant.id === currentLocalStorage.restaurant.id) {
-        let cartItemKey = currentLocalStorage.cartItems.findIndex(f => f.productByName === productByKeyName);
+      else if (currentLocalStorage.cartItems.find(f => f.productById === productByKeyName) !== undefined && restaurant.id === currentLocalStorage.restaurant.id) {
+        let cartItemKey = currentLocalStorage.cartItems.findIndex(f => f.productById === productByKeyName);
         if (currentLocalStorage.cartItems[cartItemKey].amount < 30) {
           currentLocalStorage.cartItems[cartItemKey].amount = currentLocalStorage.cartItems[cartItemKey].amount + 1;
         }
@@ -64,14 +64,14 @@ export class CartService {
 
     if (localCart !== null) {
       if (removeType === "one") {
-        const cartItem = localCart.cartItems.findIndex(find => find.productByName === productById);
+        const cartItem = localCart.cartItems.findIndex(find => find.productById === productById);
         if (localCart.cartItems[cartItem].amount > 1) {
           localCart.cartItems[cartItem].amount = localCart.cartItems[cartItem].amount - 1;
         }
       }
       
       if (removeType === "all") {
-        localCart.cartItems = localCart.cartItems.filter(filter => filter.productByName !== productById && filter.amount > 0);
+        localCart.cartItems = localCart.cartItems.filter(filter => filter.productById !== productById && filter.amount > 0);
       }
 
       if (localCart.cartItems.length === 0) {

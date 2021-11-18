@@ -87,7 +87,7 @@ namespace AlkmaarseRestaurants.DummyData
                         {
                             new RestaurantTypeModel()
                             {
-                                Name = "Name",
+                                Name = "Geen",
                                 Description = "",
                                 CssClass = "fas fa-hamburger"
                             }
@@ -100,21 +100,24 @@ namespace AlkmaarseRestaurants.DummyData
                             Id = 0,
                             Name = "Croissant",
                             Description = "Met boter en een bramenjam met steranijs",
-                            Price = 3.75m
+                            Price = 3.75m,
+                            MenuCategory = menuItemData.RestaurantMenuItemCategories[0]
                         },
                         new RestaurantMenuItemModel
                         {
                             Id = 1,
                             Name = "Hangop",
                             Description = "Met granola en vers fruit",
-                            Price = 7.50m
+                            Price = 7.50m,
+                            MenuCategory = menuItemData.RestaurantMenuItemCategories[1]
                         },
                         new RestaurantMenuItemModel
                         {
                             Id = 2,
                             Name = "Kalfskroketten",
                             Description = "Met brood en mosterd",
-                            Price = 9.50m
+                            Price = 9.50m,
+                            MenuCategory = menuItemData.RestaurantMenuItemCategories[2]
                         },
                     }
                 },
@@ -136,7 +139,7 @@ namespace AlkmaarseRestaurants.DummyData
                         Website = "https://www.proeflokaalbregje.nl",
                         RestaurantTypes = new List<RestaurantTypeModel>
                         {
-                            new RestaurantTypeModel
+                            new RestaurantTypeModel()
                             {
                                 Name = "hello",
                                 Description = "",
@@ -151,24 +154,27 @@ namespace AlkmaarseRestaurants.DummyData
                             Id = 0,
                             Name = "Gerookte zalm",
                             Description = "Met saffraanmayonaise, bosui en rucola",
-                            Price = 7.00m
+                            Price = 7.00m,
+                            MenuCategory = menuItemData.RestaurantMenuItemCategories[0]
                         },
                         new RestaurantMenuItemModel
                         {
                             Id = 1,
                             Name = "Geitenkaas",
                             Description = "Met honing, gekaramelliseerde pecannoten en rucola",
-                            Price = 6.00m
+                            Price = 6.00m,
+                            MenuCategory = menuItemData.RestaurantMenuItemCategories[1]
                         },
                         new RestaurantMenuItemModel
                         {
                             Id = 2,
                             Name = "Rundvleeskroketten",
                             Description = "2 ambachtelijke rundvleeskroketten",
-                            Price = 6.00m
+                            Price = 6.00m,
+                            MenuCategory = menuItemData.RestaurantMenuItemCategories[2]
                         },
                     }
-                }
+                },
             };
         }
     }

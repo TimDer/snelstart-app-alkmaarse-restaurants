@@ -16,7 +16,7 @@
             <tr *ngFor="let cart of cartService.cart?.cartItems">
                 <td class="max-content">{{ getCartItemFromMenu(cartService.cart, cart.productByName).name }}</td>
                 <td>{{ cart.amount }}</td>
-                <td>{{ (cart.amount * getCartItemFromMenu(cartService.cart, cart.productByName).price).toString() | restaurantPrice }}   </td>
+                <td class="restaurantPipe">{{ (cart.amount * getCartItemFromMenu(cartService.cart, cart.productByName).price).toString() | restaurantPrice }}</td>
                 <td class="btn-spacing">
                     <button class="btn btn-primary margin-5" (click)="cartService.addProductToCart(cart.productByName, cartService.cart?.restaurant)"><i class="fas fa-plus"></i></button>
                     <button class="btn btn-primary margin-5" (click)="cartService.removeProductFromCart(cart.productByName, 'one')"><i class="fas fa-minus"></i></button>

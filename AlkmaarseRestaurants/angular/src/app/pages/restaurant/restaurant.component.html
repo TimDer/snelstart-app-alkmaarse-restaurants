@@ -25,7 +25,7 @@
                                 <tr>
                                     <td>{{ menuItem.name }}</td>
                                     <td>{{ menuItem.description }}</td>
-                                    <td>{{ menuItem.price.toString() | restaurantPrice }}</td>
+                                    <td class="restaurantPipe">{{ menuItem.price.toString() | restaurantPrice }}</td>
                                     <td>{{ menuItem.menuCategory.displayName }}</td>
                                     <td><button class="btn btn-primary restaurant-menu-add-to-cart-btn-onclick" (click)="cartService.addProductToCart(menuItem.id, Restaurant)"><i class="fas fa-shopping-cart"></i></button></td>
                                 </tr>
@@ -37,7 +37,7 @@
                             <ul>
                                 <li>{{ menuItem.name }}</li>
                                 <li>{{ menuItem.description }}</li>
-                                <li>{{ menuItem.price.toString() | restaurantPrice }}</li>
+                                <li class="restaurantPipe">{{ menuItem.price.toString() | restaurantPrice }}</li>
                                 <li>{{ menuItem.menuCategory.displayName }}</li>
                                 <li><button class="btn btn-primary restaurant-menu-add-to-cart-btn-onclick" (click)="cartService.addProductToCart(menuItem.id, Restaurant)"><i class="fas fa-shopping-cart"></i></button></li>
                             </ul>

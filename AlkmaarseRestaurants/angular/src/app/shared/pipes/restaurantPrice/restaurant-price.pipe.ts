@@ -31,7 +31,7 @@ export class RestaurantPricePipe implements PipeTransform {
       newData = priceArray[0] + "," + priceArray[1] + "0";
     }
 
-    return `€ ${newData}`;
+    return `€${newData}`;
   }
 
 }

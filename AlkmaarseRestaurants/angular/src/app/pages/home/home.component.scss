@@ -1,0 +1,7 @@
+.custom-container {
+    & > .row {
+        .sidebar-img {
+            max-width: 100%;
+        }
+    }
+}

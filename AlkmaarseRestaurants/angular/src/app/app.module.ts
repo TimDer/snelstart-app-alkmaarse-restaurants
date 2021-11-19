@@ -13,7 +13,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RestaurantLogoComponent } from './shared/components/restaurant-logo/restaurant-logo.component';
 import { RestaurantTypeTooltipComponent } from './shared/components/restaurant-type-tooltip/restaurant-type-tooltip.component';
 import { RestaurantIconTypeComponent } from './shared/components/restaurant-icon-type/restaurant-icon-type.component';
-import { RestaurantPricePipe } from './shared/pipes/restaurantPrice/restaurant-price.pipe';
 import { CartComponent } from './pages/cart/cart.component';
 import { HomeComponent } from './pages/home/home.component';
 
@@ -46,7 +45,6 @@ const ngRoutes: Routes = [
     RestaurantLogoComponent,
     RestaurantTypeTooltipComponent,
     RestaurantIconTypeComponent,
-    RestaurantPricePipe,
     CartComponent,
     HomeComponent
   ],

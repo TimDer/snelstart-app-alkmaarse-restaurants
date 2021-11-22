@@ -16,7 +16,7 @@
             <tr *ngFor="let cart of cartService.cart?.cartItems">
                 <td class="max-content">{{ getCartItemFromMenu(cartService.cart, cart.productById).name }}</td>
                 <td>{{ cart.amount }}</td>
-                <td class="restaurantPipe">{{ (cart.amount * getCartItemFromMenu(cartService.cart, cart.productById).price) | currency:'EUR' }}</td>
+                <td class="restaurantPipe">{{ (getCartTotalPrice(getCartItemFromMenu(cartService.cart, cart.productById).price, cart.amount)) | currency:'EUR' }}</td>
                 <td class="btn-spacing">
                     <button class="btn btn-primary margin-5" (click)="cartService.addProductToCart(cart.productById, cartService.cart?.restaurant)"><i class="fas fa-plus"></i></button>
                     <button class="btn btn-primary margin-5" (click)="cartService.removeProductFromCart(cart.productById, 'one')"><i class="fas fa-minus"></i></button>
@@ -25,6 +25,11 @@
                 <td class="bin-product bootstrap-sm-down-hide">
                     <button class="btn btn-danger bin-btn" (click)="cartService.removeProductFromCart(cart.productById, 'all')"><i class="fas fa-trash"></i></button>
                 </td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td>Totaal: <span class="restaurantPipe">{{ totalPrice | currency:'EUR' }}</span></td>
+                <td colspan="2"></td>
             </tr>
         </tbody>
     </table>

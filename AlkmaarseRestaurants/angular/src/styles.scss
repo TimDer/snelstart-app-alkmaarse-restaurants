@@ -41,6 +41,9 @@ span.small-text {
     font-size: 13px;
 }
 
+span.restaurantPipe {
+    display: inline-block;
+}
 .restaurantPipe::first-letter {
     margin-right: 4px
 }

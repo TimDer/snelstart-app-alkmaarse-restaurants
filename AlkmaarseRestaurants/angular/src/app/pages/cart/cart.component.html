@@ -26,7 +26,7 @@
                     <button class="btn btn-danger bin-btn" (click)="cartService.removeProductFromCart(cart.productById, 'all')"><i class="fas fa-trash"></i></button>
                 </td>
             </tr>
-            <tr>
+            <tr class="cart-footer">
                 <td colspan="2"></td>
                 <td>Totaal: <span class="restaurantPipe">{{ totalPrice | currency:'EUR' }}</span></td>
                 <td colspan="2"></td>

@@ -19,6 +19,10 @@
     overflow: hidden;
 }
 
+.cart-footer {
+    background-color: #DBDBDB;
+}
+
 @media (max-width: #{map.get($grid-breakpoints, "sm") - 0.02}) {
     .bootstrap-sm-down-hide {
         display: none;

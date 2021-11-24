@@ -1,7 +1,17 @@
+@use "sass:map";
+@import "/src/scss/bootstrap/bootstrap-start.scss";
+
 .custom-container {
-    & > .row {
+    .home-img {
+        max-width: 100%;
+        margin: auto;
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    @media (min-width: map.get($grid-breakpoints, "lg")) {
         .home-img {
-            max-width: 100%;
+            max-width: 50%;
         }
     }
 }

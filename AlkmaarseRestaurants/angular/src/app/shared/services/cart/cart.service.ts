@@ -41,6 +41,7 @@ export class CartService {
         product.cartItems.push(cartItem);
         product.restaurant = restaurant;
         this.cart = product;
+        this._currentArticlesAmount = null;
       }
       else if (currentLocalStorage.cartItems.find(f => f.productById === productByKeyName) !== undefined && restaurant.id === currentLocalStorage.restaurant.id) {
         let cartItemKey = currentLocalStorage.cartItems.findIndex(f => f.productById === productByKeyName);
@@ -48,10 +49,12 @@ export class CartService {
           currentLocalStorage.cartItems[cartItemKey].amount = currentLocalStorage.cartItems[cartItemKey].amount + 1;
         }
         this.cart = currentLocalStorage;
+        this._currentArticlesAmount = null;
       }
       else if (restaurant.id === currentLocalStorage.restaurant.id) {
         currentLocalStorage.cartItems.push(cartItem);
         this.cart = currentLocalStorage;
+        this._currentArticlesAmount = null;
       }
       else {
         alert("Je kunt enkel van één restaurant tegelijkertijd bestellen");
@@ -77,9 +80,31 @@ export class CartService {
       if (localCart.cartItems.length === 0) {
         localCart = null;
       }
+
+      this._currentArticlesAmount = null;
     }
     
     this.cart = localCart;
+  }
+
+  private _currentArticlesAmount: number | null = null;
+  public get currentArticlesAmount(): number {
+    if (this._currentArticlesAmount === null) {
+      const localCart = this.cart;
+      let returnAmount = 0;
+
+      if (localCart !== null) {
+        for (let i = 0; i < localCart.cartItems.length; i++) {
+          returnAmount = returnAmount + localCart.cartItems[i].amount;
+        }
+      }
+
+      this._currentArticlesAmount = returnAmount;
+      return returnAmount;
+    }
+    else {
+      return this._currentArticlesAmount;
+    }
   }
 
   constructor() { }

@@ -36,6 +36,12 @@ namespace AlkmaarseRestaurants.DummyData
                                 Name = "Fast food",
                                 Description = "In dit restaurant kun je fast food kopen",
                                 CssClass = "fas fa-hamburger"
+                            },
+                            new RestaurantTypeModel()
+                            {
+                                Name = "Teras",
+                                Description = "Bij dit restaurant is een teras aanwezig",
+                                CssClass = "fas fa-sun"
                             }
                         }
                     },

@@ -4,8 +4,6 @@
 		<TargetFramework>net5.0</TargetFramework>
 		<AngularSourceFiles>angular\</AngularSourceFiles>
 	</PropertyGroup>
-
-	<Target Name="CheckIfNodeJsIsInstalled" BeforeTargets="Build"></Target>
 	
 	<Target Name="PublishAngularDistFiles" AfterTargets="ComputeFilesToPublish">
 		<Exec WorkingDirectory="$(AngularSourceFiles)" Command="npm install"/>

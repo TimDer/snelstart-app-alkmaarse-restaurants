@@ -123,6 +123,7 @@
                     </ng-container>
                     <ng-container *ngIf="MessageSent">
                         <p class="margin-0 padding-top-4">Je hebt al een bericht verzonden naar dit restaurant</p>
+                        <button class="btn btn-primary btn-block margin-top-10" (click)="MessageSent = false">Nog een bericht verzenden</button>
                     </ng-container>
                 </div>
                 <div class="modal-footer">

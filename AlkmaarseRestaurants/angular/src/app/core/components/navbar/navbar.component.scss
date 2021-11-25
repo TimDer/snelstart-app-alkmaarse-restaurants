@@ -16,3 +16,11 @@
         text-decoration: none;
     }
 }
+
+.cartAmount {
+    background-color: $blue;
+    color: white;
+    border-radius: 50%;
+    display: inline-block;
+    transform: translate(-11px, -11px);
+}

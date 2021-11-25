@@ -14,19 +14,32 @@ export class CartComponent implements OnInit {
     public cartService: CartService
   ) { }
 
+  private _totalPrice: number | null = null
   public get totalPrice(): number {
     let returnPrice: number | undefined = 0;
-    const localCart = this.cartService.cart;
 
-    if (localCart !== null) {
-      for (let i = 0; i < localCart.cartItems.length; i++) {
-        returnPrice = returnPrice + localCart.restaurant.restaurantMenu?.find(find => 
-                        find.id === localCart.cartItems[i].productById)!.price *
-                        localCart.cartItems[i].amount;
+    if (this._totalPrice === null) {
+      const localCart = this.cartService.cart;
+  
+      if (localCart !== null) {
+        for (let i = 0; i < localCart.cartItems.length; i++) {
+          returnPrice = returnPrice + localCart.restaurant.restaurantMenu?.find(find => 
+                          find.id === localCart.cartItems[i].productById)!.price *
+                          localCart.cartItems[i].amount;
+        }
       }
+      
+      this._totalPrice = returnPrice;
+    }
+    else {
+      returnPrice = this._totalPrice;
     }
 
     return returnPrice === undefined ? 0 : returnPrice;
+  }
+
+  public resetTotalPrice(): void {
+    this._totalPrice = null;
   }
 
   public getCartTotalPrice(price: number, amount: number) {

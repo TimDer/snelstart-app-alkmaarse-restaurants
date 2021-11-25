@@ -15,7 +15,7 @@ namespace AlkmaarseRestaurants
         {
             services.AddControllers();
             services.AddSpaStaticFiles(conf => {
-                conf.RootPath = "angular/dist/angular";
+                conf.RootPath = "angular/dist/angular/";
             });
         }
 
@@ -27,7 +27,10 @@ namespace AlkmaarseRestaurants
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseStaticFiles();
+            if (!env.IsDevelopment())
+            {
+                app.UseSpaStaticFiles();
+            }
 
             app.UseRouting();
 
@@ -37,7 +40,7 @@ namespace AlkmaarseRestaurants
             });
 
             app.UseSpa(spa => {
-                spa.Options.SourcePath = "angular";
+                spa.Options.SourcePath = "angular/dist/";
 
                 if (env.IsDevelopment()) {
                     spa.UseAngularCliServer(npmScript: "start");

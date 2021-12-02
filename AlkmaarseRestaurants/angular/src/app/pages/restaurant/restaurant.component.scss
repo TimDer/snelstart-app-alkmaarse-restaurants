@@ -58,6 +58,12 @@
         .restaurant-speed-data:first-child {
             margin-top: 0 !important;
         }
+
+        .restaurant-speed-data {
+            .audio-call {
+                max-width: 100%;
+            }
+        }
     }
 }
 

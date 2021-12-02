@@ -42,6 +42,12 @@ namespace AlkmaarseRestaurants.DummyData
                                 Name = "Teras",
                                 Description = "Bij dit restaurant is een teras aanwezig",
                                 CssClass = "fas fa-sun"
+                            },
+                            new RestaurantTypeModel()
+                            {
+                                Name = "Thuis bezorging",
+                                Description = "Geniet van de luxe van thuis bezorging.",
+                                CssClass = "fas fa-home"
                             }
                         }
                     },
@@ -93,8 +99,20 @@ namespace AlkmaarseRestaurants.DummyData
                         {
                             new RestaurantTypeModel()
                             {
-                                Name = "Geen",
-                                Description = "",
+                                Name = "Thuis bezorging",
+                                Description = "Geniet van de luxe van thuis bezorging.",
+                                CssClass = "fas fa-home"
+                            },
+                            new RestaurantTypeModel()
+                            {
+                                Name = "Teras",
+                                Description = "Bij dit restaurant is een teras aanwezig",
+                                CssClass = "fas fa-sun"
+                            },
+                            new RestaurantTypeModel()
+                            {
+                                Name = "Fast food",
+                                Description = "In dit restaurant kun je fast food kopen",
                                 CssClass = "fas fa-hamburger"
                             }
                         }
@@ -147,9 +165,15 @@ namespace AlkmaarseRestaurants.DummyData
                         {
                             new RestaurantTypeModel()
                             {
-                                Name = "hello",
-                                Description = "",
+                                Name = "Fast food",
+                                Description = "In dit restaurant kun je fast food kopen",
                                 CssClass = "fas fa-hamburger"
+                            },
+                            new RestaurantTypeModel()
+                            {
+                                Name = "Thuis bezorging",
+                                Description = "Geniet van de luxe van thuis bezorging.",
+                                CssClass = "fas fa-home"
                             }
                         }
                     },
